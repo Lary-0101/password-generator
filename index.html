@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator de Parole</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <button class="toggle-mode" id="modeToggle">🌙</button>
+
+    <div class="container">
+        <h1>Generator de Parole</h1>
+        <label for="length">Lungimea parolei:</label>
+        <input type="number" id="length" min="1" max="20" value="12">
+        
+        <div class="settings">
+            <label><input type="checkbox" id="includeSymbols" checked> Simboluri</label>
+            <label><input type="checkbox" id="includeNumbers" checked> Cifre</label>
+            <label><input type="checkbox" id="includeLowercase" checked> Litere mici</label>
+            <label><input type="checkbox" id="includeUppercase" checked> Litere mari</label>
+            <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicate</label>
+            <label><input type="checkbox" id="excludeSimilar"> Exclude caractere similare</label>
+        </div>
+
+        <div class="btn-container">
+            <button onclick="generatePassword()">Generează Parolă</button>
+        </div>
+
+        <div class="password" id="password">
+            <span id="passwordText">Click pentru a copia</span>
+            <button class="copy-btn" onclick="copyPassword()">📋</button>
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

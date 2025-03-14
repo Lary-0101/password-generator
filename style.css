@@ -70,35 +70,29 @@ h1 {
     background-color: #d63031;
 }
 
-/* CONTAINER PAROLĂ GENERATĂ - Centrat și vizibil */
+/* CONTAINER PAROLĂ GENERATĂ - Centrat perfect */
 .password-container {
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 5px;
     border: 1px solid white;
     margin-top: 20px;
     width: 100%;
-    max-width: 550px;
-    min-height: 50px;
+    max-width: 500px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    justify-content: space-between;
 }
 
 /* TEXT PAROLĂ CENTRAT PERFECT */
 #passwordText {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    min-width: 250px;
+    padding-right: 20px;
 }
 
 /* BUTON COPIERE */

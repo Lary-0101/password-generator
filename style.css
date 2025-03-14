@@ -1,161 +1,77 @@
-/* FUNDAL GENERAL */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #121212;
+    font-family: Arial, sans-serif;
+    background: #2b2b2b;
     color: white;
+    text-align: center;
+}
+
+.navbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    margin: 0;
-    transition: background 0.3s;
-    position: relative;
-}
-
-/* CONTAINER PRINCIPAL */
-.container {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-    width: 100%;
-    max-width: 650px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-}
-
-/* TITLU */
-h1 {
-    color: #ff4757;
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-/* INPUT PENTRU LUNGIMEA PAROLEI */
-#length {
-    font-size: 20px;
-    padding: 8px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #ff4757;
-    background: #222;
-    color: white;
-    width: 80px;
-}
-
-/* SETĂRI - 2 coloane frumos aranjate */
-.settings {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-/* BUTON GENERARE PAROLĂ */
-.btn-container button {
-    background-color: #ff4757;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 14px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s;
-}
-
-.btn-container button:hover {
-    background-color: #d63031;
-}
-
-/* CONTAINER PAROLĂ GENERATĂ - Centrat perfect */
-.password-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid white;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 500px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
     justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 15px;
 }
 
-/* TEXT PAROLĂ CENTRAT PERFECT */
-#passwordText {
-    flex-grow: 1;
-    text-align: center;
-    padding-right: 20px;
-    font-size: 22px;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
     font-weight: bold;
-    color: white;
-    min-width: 200px;
 }
 
-/* BUTON COPIERE */
-.copy-btn {
-    background-color: #ff4757;
-    color: white;
+.container {
+    background: #3a3a3a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 20px auto;
+}
+
+button {
+    background: #ff4747;
     border: none;
     padding: 10px;
+    color: white;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px;
 }
 
-.copy-btn:hover {
-    background-color: #d63031;
+button:hover {
+    background: #ff3333;
 }
 
-/* MOD INTUNECAT */
-.dark-mode {
-    background: #121212;
-    color: white;
+.security-gif {
+    width: 150px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
 }
 
-/* MOD LUMINOS - Fundal verde */
-.light-mode {
-    background: #DFFFD6;
-    color: black;
-}
-
-/* BUTON MOD INTUNECAT/LUMINOS */
-.toggle-mode {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* NOTIFICARE - Apare doar la copiere */
 .notification {
-    visibility: hidden;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px;
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
+    display: none;
 }
 
-/* Clasă pentru a face notificarea vizibilă */
 .notification.show {
-    visibility: visible;
-    opacity: 1;
+    display: block;
+}
+
+.footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: #1a1a1a;
+    color: white;
 }

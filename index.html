@@ -1,74 +1,40 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeKeys - Generator de Parole</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>SafeKeys</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
-        <div class="container">
-            <a class="navbar-brand" href="#">🔐 SafeKeys</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Acasă</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#generator">⚙️ Generator</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#security">🔒 Securitate</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">ℹ️ Despre</a></li>
-                </ul>
-            </div>
+<body class="dark-mode">
+    <button class="toggle-mode" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+
+    <div class="container">
+        <h1>SafeKeys</h1>
+        <label for="length">Password length:</label>
+        <input type="number" id="length" min="1" max="20" value="12">
+        
+        <div class="settings">
+            <label><input type="checkbox" id="includeSymbols" checked> Symbols</label>
+            <label><input type="checkbox" id="includeNumbers" checked> Numbers</label>
+            <label><input type="checkbox" id="includeLowercase" checked> Lowercase letters</label>
+            <label><input type="checkbox" id="includeUppercase" checked> Uppercase letters</label>
+            <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicates</label>
+            <label><input type="checkbox" id="excludeSimilar"> Exclude similar characters</label>
         </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <header class="bg-dark text-white text-center py-5">
-        <h1>🔑 Generator de Parole Sigur</h1>
-        <p>Protejează-ți conturile cu parole puternice generate automat.</p>
-        <img src="img/security.gif" class="img-fluid rounded" alt="Secure Passwords">
-    </header>
-    
-    <!-- Generator de Parole -->
-    <section id="generator" class="container my-5 text-center">
-        <h2 class="mb-3">🔑 Generare Parolă</h2>
-        <div class="card p-4 shadow-lg mx-auto" style="max-width: 500px;">
-            <label for="length" class="form-label">Lungimea parolei:</label>
-            <input type="number" id="length" class="form-control mb-3" min="6" max="20" value="12">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="includeSymbols" checked>
-                <label class="form-check-label" for="includeSymbols">✨ Include simboluri</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="includeNumbers" checked>
-                <label class="form-check-label" for="includeNumbers">🔢 Include cifre</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="includeLowercase" checked>
-                <label class="form-check-label" for="includeLowercase">🔠 Include litere mici</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="includeUppercase" checked>
-                <label class="form-check-label" for="includeUppercase">🔡 Include litere mari</label>
-            </div>
-            <button class="btn btn-danger w-100 mt-3" onclick="generatePassword()">🔄 Generează Parolă</button>
-            <div class="mt-3 p-3 bg-light text-dark rounded">
-                <span id="passwordText">Parola generată va apărea aici</span>
-                <button class="btn btn-outline-primary ms-2" onclick="copyPassword()">📋 Copiază</button>
-            </div>
+
+        <div class="btn-container">
+            <button onclick="generatePassword()">Generate Password</button>
         </div>
-    </section>
-    
-    <footer class="footer bg-primary text-white text-center py-3">
-        &copy; 2025 SafeKeys - 🔐 Toate drepturile rezervate.
-    </footer>
-    
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/custom.js"></script>
+
+        <div class="password-container">
+            <span id="passwordText">Generated password will appear here</span>
+            <button class="copy-btn" onclick="copyPassword()">📋</button>
+        </div>
+
+        <div id="notification" class="notification">Password copied successfully!</div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

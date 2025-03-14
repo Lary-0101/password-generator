@@ -74,7 +74,7 @@ h1 {
 .password-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centrare orizontală */
     background: rgba(255, 255, 255, 0.2);
     padding: 12px;
     border-radius: 5px;
@@ -85,14 +85,16 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    justify-content: space-between;
 }
 
 /* TEXT PAROLĂ CENTRAT PERFECT */
 #passwordText {
     flex-grow: 1;
-    text-align: center;
-    padding-right: 20px;
+    display: flex;
+    justify-content: center; /* Centrare text */
+    align-items: center;
+    padding: 0 10px; /* Mic spațiu pentru aspect */
+    min-height: 40px; /* Se asigură că rămâne aliniat */
 }
 
 /* BUTON COPIERE */

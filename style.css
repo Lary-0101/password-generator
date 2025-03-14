@@ -32,6 +32,37 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* INPUT PENTRU LUNGIMEA PAROLEI - Mai mare */
+#length {
+    font-size: 20px;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ff4757;
+    background: #222;
+    color: white;
+    width: 80px;
+}
+
+/* SETĂRI - 2 coloane */
+.settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.settings label {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 /* BUTON GENERARE PAROLĂ */
 .btn-container button {
     background-color: #ff4757;
@@ -85,9 +116,9 @@ h1 {
     color: white;
 }
 
-/* MOD LUMINOS - acum are o culoare mai frumoasă */
+/* MOD LUMINOS - Fundal verde */
 .light-mode {
-    background: linear-gradient(135deg, #f3f3f3, #dcdcdc);
+    background: #DFFFD6;
     color: black;
 }
 
@@ -100,4 +131,26 @@ h1 {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+/* NOTIFICARE */
+.notification {
+    visibility: hidden;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
+}
+
+.notification.show {
+    visibility: visible;
+    opacity: 1;
 }

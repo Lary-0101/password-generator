@@ -1,7 +1,7 @@
 /* FUNDAL GENERAL */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #141414;
+    background-color: #121212;
     color: white;
     display: flex;
     justify-content: center;
@@ -30,34 +30,6 @@ h1 {
     color: #ff4757;
     font-size: 28px;
     margin-bottom: 10px;
-}
-
-/* INPUT PENTRU LUNGIMEA PAROLEI */
-#length {
-    font-size: 18px;
-    padding: 5px;
-    margin: 10px 0;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #ff4757;
-    background: #222;
-    color: white;
-}
-
-/* SETĂRI */
-.settings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.settings label {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 /* BUTON GENERARE PAROLĂ */
@@ -108,35 +80,7 @@ h1 {
 }
 
 /* MOD INTUNECAT */
-.dark-mode {
-    background-color: blue;
-    color: black;
-}
+.dark-mode { background-color: black; color: white; }
 
 /* MOD LUMINOS */
-.light-mode {
-    background-color: white;
-    color: red;
-}
-
-/* NOTIFICARE */
-.notification {
-    visibility: hidden;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    font-size: 16px;
-    transition: visibility 0s, opacity 0.5s linear;
-    opacity: 0;
-}
-
-.notification.show {
-    visibility: visible;
-    opacity: 1;
-}
+.light-mode { background-color: white; color: black; }

@@ -1,7 +1,7 @@
-/* FUNDAL GENERAL - Gradient modern */
+/* FUNDAL GENERAL */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e1e1e, #121212);
+    background: #121212;
     color: white;
     display: flex;
     justify-content: center;
@@ -13,131 +13,105 @@ body {
     position: relative;
 }
 
-/* CONTAINER PRINCIPAL - Stil modern cu efect 3D */
+/* CONTAINER PRINCIPAL */
 .container {
     background: rgba(255, 255, 255, 0.1);
-    padding: 50px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
     text-align: center;
-    backdrop-filter: blur(15px);
-    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
 }
 
 /* TITLU */
 h1 {
     color: #ff4757;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 /* INPUT PENTRU LUNGIMEA PAROLEI */
 #length {
     font-size: 20px;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
-    border-radius: 8px;
-    border: 2px solid #ff4757;
+    border-radius: 5px;
+    border: 1px solid #ff4757;
     background: #222;
     color: white;
-    width: 100px;
-    font-weight: bold;
+    width: 80px;
 }
 
 /* SETĂRI - 2 coloane frumos aranjate */
 .settings {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-/* BUTON GENERARE PAROLĂ - Efect 3D */
+/* BUTON GENERARE PAROLĂ */
 .btn-container button {
-    background: linear-gradient(145deg, #ff5f6d, #ff4757);
+    background-color: #ff4757;
     color: white;
     font-weight: bold;
     border: none;
-    padding: 16px;
-    font-size: 20px;
+    padding: 14px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.5);
+    border-radius: 6px;
+    transition: all 0.3s;
 }
 
 .btn-container button:hover {
-    background: linear-gradient(145deg, #ff3b4d, #d63031);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.6);
+    background-color: #d63031;
 }
 
-/* CONTAINER PAROLĂ GENERATĂ - Mai mare și centrat perfect */
+/* CONTAINER PAROLĂ GENERATĂ - Ajustat să fie mai mare și centrat corect */
 .password-container {
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid white;
-    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid white;
+    margin-top: 20px;
     width: 100%;
-    max-width: 600px;  /* Mai lat */
-    font-size: 24px;
+    max-width: 550px; /* Lățime mai mare */
+    min-height: 50px; /* Asigură spațiu pentru afișarea parolei */
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
-    transition: all 0.3s ease-in-out;
 }
 
 /* TEXT PAROLĂ CENTRAT PERFECT */
 #passwordText {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    min-height: 50px;
+    text-align: center;
     font-size: 22px;
-    letter-spacing: 1.5px;
-    color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    padding: 5px;
+    color: white;
+    min-width: 200px; /* Se asigură că textul nu se comprimă prea mult */
 }
 
-/* ANIMAȚIE APARIȚIE PAROLĂ */
-#passwordText {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-.password-container.show #passwordText {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* BUTON COPIERE - Efect vizual îmbunătățit */
+/* BUTON COPIERE */
 .copy-btn {
-    background: linear-gradient(145deg, #ff5f6d, #ff4757);
+    background-color: #ff4757;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-left: 12px;
-    font-size: 18px;
-    transition: all 0.3s ease-in-out;
+    margin-left: 10px;
 }
 
 .copy-btn:hover {
-    background: linear-gradient(145deg, #ff3b4d, #d63031);
-    transform: scale(1.1);
+    background-color: #d63031;
 }
 
 /* MOD INTUNECAT */
@@ -169,16 +143,15 @@ h1 {
     background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 12px;
+    padding: 10px;
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 8px;
-    font-size: 18px;
+    border-radius: 5px;
+    font-size: 16px;
     transition: visibility 0s, opacity 0.5s linear;
     opacity: 0;
-    font-weight: bold;
 }
 
 .notification.show {

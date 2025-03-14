@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeKeys - Generator de Parole</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-mode">
     
     <!-- Navbar Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
         <div class="container">
             <a class="navbar-brand" href="#">🔐 SafeKeys</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -35,35 +35,53 @@
 
     <button class="btn btn-warning position-fixed top-0 end-0 m-3" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
     
+    <!-- Hero Section -->
+    <header class="bg-dark text-white text-center py-5">
+        <h1>🔑 Generator de Parole Sigur</h1>
+        <p>Protejează-ți conturile cu parole puternice generate automat.</p>
+    </header>
+
     <!-- Generator de Parole -->
     <section id="generator" class="container my-5 text-center">
-        <h1 class="mb-3">🔑 Generator de Parole</h1>
-        <label for="length">Lungimea parolei:</label>
-        <input type="number" id="length" class="form-control w-25 mx-auto mb-3" min="1" max="20" value="12">
-        
-        <button class="btn btn-danger mt-3" onclick="generatePassword()">🔄 Generează Parolă</button>
-        <div class="mt-3 p-3 bg-light text-dark rounded">
-            <span id="passwordText">Parola generată va apărea aici</span>
-            <button class="btn btn-outline-primary ms-2" onclick="copyPassword()">📋 Copiază</button>
+        <h2 class="mb-3">Generare Parolă</h2>
+        <div class="card p-4 shadow-lg mx-auto" style="max-width: 500px;">
+            <label for="length" class="form-label">Lungimea parolei:</label>
+            <input type="number" id="length" class="form-control mb-3" min="6" max="20" value="12">
+            <button class="btn btn-danger w-100" onclick="generatePassword()">🔄 Generează Parolă</button>
+            <div class="mt-3 p-3 bg-light text-dark rounded">
+                <span id="passwordText">Parola generată va apărea aici</span>
+                <button class="btn btn-outline-primary ms-2" onclick="copyPassword()">📋 Copiază</button>
+            </div>
         </div>
     </section>
 
     <!-- Sfaturi de securitate -->
     <section id="security" class="container my-5 text-center">
         <h2>🔒 Importanța parolelor securizate</h2>
-        <ul class="list-group list-group-flush text-start mx-auto w-50">
-            <li class="list-group-item">✔️ Combinați litere mari, mici, numere și simboluri.</li>
-            <li class="list-group-item">✔️ Evitați parole comune sau informații personale.</li>
-            <li class="list-group-item">✔️ Utilizați parole diferite pentru fiecare cont.</li>
-            <li class="list-group-item">✔️ Activați autentificarea în doi pași.</li>
-        </ul>
+        <p>Evitați parolele slabe! Iată câteva recomandări pentru protecția conturilor:</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <ul class="list-group text-start">
+                    <li class="list-group-item">✔️ Folosiți o combinație de litere, cifre și simboluri.</li>
+                    <li class="list-group-item">✔️ Nu reutilizați parolele pe mai multe conturi.</li>
+                    <li class="list-group-item">✔️ Activați autentificarea în doi pași.</li>
+                    <li class="list-group-item">✔️ Evitați folosirea numelui sau a datelor personale.</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <footer class="footer bg-dark text-white text-center py-3">
+    <!-- Despre aplicație -->
+    <section id="about" class="container my-5 text-center">
+        <h2>ℹ️ Despre SafeKeys</h2>
+        <p>SafeKeys este un generator de parole securizat, conceput pentru a vă proteja datele online.</p>
+    </section>
+
+    <footer class="footer bg-primary text-white text-center py-3">
         &copy; 2025 SafeKeys - 🔐 Toate drepturile rezervate.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>

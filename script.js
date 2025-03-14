@@ -1,24 +1,33 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("modeToggle").addEventListener("click", toggleDarkMode);
-});
-
 function generatePassword() {
-    const length = parseInt(document.getElementById('length').value);
+    const length = document.getElementById('length').value;
+    const includeSymbols = document.getElementById('includeSymbols').checked;
+    const includeNumbers = document.getElementById('includeNumbers').checked;
+    const includeLowercase = document.getElementById('includeLowercase').checked;
+    const includeUppercase = document.getElementById('includeUppercase').checked;
+    const excludeDuplicates = document.getElementById('excludeDuplicates').checked;
+    const excludeSimilar = document.getElementById('excludeSimilar').checked;
+
     let charset = "";
+    if (includeLowercase) charset += "abcdefghijklmnopqrstuvwxyz";
+    if (includeUppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (includeNumbers) charset += "0123456789";
+    if (includeSymbols) charset += "!@#$%^&*()+";
 
-    if (document.getElementById('includeLowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (document.getElementById('includeUppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    if (document.getElementById('includeNumbers').checked) charset += "0123456789";
-    if (document.getElementById('includeSymbols').checked) charset += "!@#$%^&*()_+-=[]{}|;:',.<>?/";
-
-    if (charset === "") {
-        alert("Selectează cel puțin o categorie de caractere!");
-        return;
+    if (excludeSimilar) {
+        charset = charset.replace(/[iIlLoO0]/g, '');
     }
 
     let password = "";
+    const usedChars = new Set();
+
     for (let i = 0; i < length; i++) {
-        password += charset.charAt(Math.floor(Math.random() * charset.length));
+        let randomChar;
+        do {
+            randomChar = charset.charAt(Math.floor(Math.random() * charset.length));
+        } while (excludeDuplicates && usedChars.has(randomChar));
+
+        password += randomChar;
+        usedChars.add(randomChar);
     }
 
     document.getElementById('passwordText').textContent = password;
@@ -26,18 +35,34 @@ function generatePassword() {
 
 function copyPassword() {
     const password = document.getElementById('passwordText').textContent;
+    navigator.clipboard.writeText(password).then(() => {
+        alert("Parola copiată în clipboard!");
+    }).catch(err => {
+        console.error("Eroare la copiere: ", err);
+    });
+}
+
+function savePassword() {
+    const password = document.getElementById('passwordText').textContent;
     if (!password || password === "Click pentru a copia") {
-        alert("Nu există nicio parolă de copiat!");
+        alert("Generează mai întâi o parolă!");
         return;
     }
 
-    navigator.clipboard.writeText(password);
-    alert("Parola copiată în clipboard!");
-}
+    const passwordList = document.getElementById('passwordList');
+    const li = document.createElement('li');
+    li.textContent = password;
 
-function toggleDarkMode() {
-    document.body.classList.toggle("light-mode");
-    document.body.classList.toggle("dark-mode");
-    let modeIcon = document.getElementById("modeToggle");
-    modeIcon.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    // Buton de copiere pentru fiecare parolă salvată
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = "📋";
+    copyBtn.classList.add('copy-btn');
+    copyBtn.onclick = function () {
+        navigator.clipboard.writeText(password).then(() => {
+            alert("Parola copiată din lista salvărilor!");
+        });
+    };
+
+    li.appendChild(copyBtn);
+    passwordList.appendChild(li);
 }

@@ -59,6 +59,7 @@ function copyPassword() {
 /* Funcția pentru afișarea notificării */
 function showNotification(message) {
     const notification = document.getElementById("notification");
+
     notification.textContent = message;
     notification.classList.add("show");
 

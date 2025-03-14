@@ -10,29 +10,6 @@ body {
     color: black;
 }
 
-.security-gif {
-    width: 150px;
-    margin: 10px auto;
-    display: block;
-    border-radius: 10px;
-}
-
-.notification {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: none;
-}
-
-.notification.show {
-    display: block;
-}
-
 .footer {
     margin-top: 20px;
     padding: 10px;

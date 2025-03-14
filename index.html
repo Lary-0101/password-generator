@@ -32,13 +32,13 @@
 
         <div class="btn-container">
             <button onclick="generatePassword()">Generează Parolă</button>
-            <button onclick="savePassword()">💾 Salvează Parola</button>
         </div>
 
-        <div class="password" id="password">
+        <div class="password" id="password" onclick="copyPassword()">
             <span id="passwordText">Click pentru a copia</span>
-            <button class="copy-btn" onclick="copyPassword()">📋</button>
         </div>
+
+        <div id="notification" class="notification">Parola copiată!</div>
     </div>
 
     <script src="script.js"></script>

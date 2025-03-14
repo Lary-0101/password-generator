@@ -1,3 +1,4 @@
+/* Stil general */
 body {
     font-family: Arial, sans-serif;
     background: #2b2b2b;
@@ -15,4 +16,35 @@ body {
     padding: 10px;
     background: #1a1a1a;
     color: white;
+}
+
+/* Generator Box */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Butoane */
+.btn-danger {
+    background-color: #ff4757;
+    border: none;
+}
+.btn-danger:hover {
+    background-color: #d63031;
+}
+
+.btn-outline-primary {
+    border-color: #ff4757;
+    color: #ff4757;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff4757;
+    color: white;
+}
+
+/* Meniu */
+.navbar {
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
 }

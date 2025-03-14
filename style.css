@@ -5,45 +5,9 @@ body {
     text-align: center;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1a1a1a;
-    padding: 15px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.container {
-    background: #3a3a3a;
-    padding: 20px;
-    border-radius: 10px;
-    width: 60%;
-    margin: 20px auto;
-}
-
-button {
-    background: #ff4747;
-    border: none;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #ff3333;
+.light-mode {
+    background: #f8f9fa;
+    color: black;
 }
 
 .security-gif {

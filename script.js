@@ -1,43 +1,82 @@
 function generatePassword() {
-    const length = parseInt(document.getElementById('length').value);
-    let charset = "";
-    if (document.getElementById('includeLowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (document.getElementById('includeUppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    if (document.getElementById('includeNumbers').checked) charset += "0123456789";
-    if (document.getElementById('includeSymbols').checked) charset += "!@#$%^&*()+-=";
+    const length = document.getElementById('length').value;
+    const includeSymbols = document.getElementById('includeSymbols').checked;
+    const includeNumbers = document.getElementById('includeNumbers').checked;
+    const includeLowercase = document.getElementById('includeLowercase').checked;
+    const includeUppercase = document.getElementById('includeUppercase').checked;
+    const excludeDuplicates = document.getElementById('excludeDuplicates').checked;
+    const excludeSimilar = document.getElementById('excludeSimilar').checked;
 
-    if (!charset.length) {
-        alert("Selectează cel puțin un tip de caracter!");
+    let charset = "";
+    if (includeLowercase) charset += "abcdefghijklmnopqrstuvwxyz";
+    if (includeUppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (includeNumbers) charset += "0123456789";
+    if (includeSymbols) charset += "!@#$%^&*()+";
+
+    if (excludeSimilar) {
+        charset = charset.replace(/[iIlLoO0]/g, '');
+    }
+
+    if (charset.length === 0) {
+        alert("Please select at least one character type!");
         return;
     }
 
     let password = "";
-    let usedChars = new Set();
-    while (password.length < length) {
-        let randomChar = charset.charAt(Math.floor(Math.random() * charset.length));
-        if (!document.getElementById('excludeDuplicates').checked || !usedChars.has(randomChar)) {
-            password += randomChar;
-            usedChars.add(randomChar);
-        }
+    const usedChars = new Set();
+
+    for (let i = 0; i < length; i++) {
+        let randomChar;
+        do {
+            randomChar = charset.charAt(Math.floor(Math.random() * charset.length));
+        } while (excludeDuplicates && usedChars.has(randomChar));
+
+        password += randomChar;
+        usedChars.add(randomChar);
     }
-    document.getElementById('passwordText').textContent = password;
+
+    const passwordText = document.getElementById('passwordText');
+    passwordText.textContent = password;
+    passwordText.style.display = "block"; // Asigură că parola este vizibilă
 }
 
+/* Funcția pentru copierea parolei */
 function copyPassword() {
-    navigator.clipboard.writeText(document.getElementById('passwordText').textContent)
-        .then(() => alert("Parola copiată cu succes!"));
+    const passwordText = document.getElementById('passwordText').textContent.trim();
+
+    if (!passwordText || passwordText === "Generated password will appear here") {
+        alert("No password to copy! Generate one first.");
+        return;
+    }
+
+    navigator.clipboard.writeText(passwordText).then(() => {
+        showNotification("Password copied successfully!");
+    }).catch(err => {
+        console.error("Copy error: ", err);
+    });
 }
 
+/* Funcția pentru afișarea notificării */
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+
+    notification.textContent = message;
+    notification.classList.add("show");
+
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 2000);
+}
+
+/* Funcția pentru schimbarea modului întunecat/luminos */
 function toggleDarkMode() {
     document.body.classList.toggle("light-mode");
     document.body.classList.toggle("dark-mode");
-    document.getElementById("modeToggle").innerHTML = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
-}
-
-window.onload = function() {
-    if (localStorage.getItem("darkMode") === "light") {
-        document.body.classList.add("light-mode");
-        document.body.classList.remove("dark-mode");
-        document.getElementById("modeToggle").innerHTML = "☀️";
+    
+    let modeIcon = document.getElementById("modeToggle");
+    if (document.body.classList.contains("light-mode")) {
+        modeIcon.innerHTML = "☀️"; // Soare pentru modul luminos
+    } else {
+        modeIcon.innerHTML = "🌙"; // Lună pentru modul întunecat
     }
-};
+}

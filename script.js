@@ -17,6 +17,11 @@ function generatePassword() {
         charset = charset.replace(/[iIlLoO0]/g, '');
     }
 
+    if (charset.length === 0) {
+        alert("Please select at least one character type!");
+        return;
+    }
+
     let password = "";
     const usedChars = new Set();
 
@@ -30,40 +35,7 @@ function generatePassword() {
         usedChars.add(randomChar);
     }
 
-    document.getElementById('passwordText').textContent = password;
-}
-
-function copyPassword() {
-    const password = document.getElementById('passwordText').textContent;
-    if (!password || password === "Parola generată va apărea aici") {
-        return;
-    }
-
-    navigator.clipboard.writeText(password).then(() => {
-        showNotification("Parola a fost copiată cu succes!");
-    }).catch(err => {
-        console.error("Eroare la copiere: ", err);
-    });
-}
-
-function showNotification(message) {
-    const notification = document.getElementById("notification");
-    notification.textContent = message;
-    notification.classList.add("show");
-
-    setTimeout(() => {
-        notification.classList.remove("show");
-    }, 2000);
-}
-
-function toggleDarkMode() {
-    document.body.classList.toggle("light-mode");
-    document.body.classList.toggle("dark-mode");
-    
-    let modeIcon = document.getElementById("modeToggle");
-    if (document.body.classList.contains("light-mode")) {
-        modeIcon.innerHTML = "☀️"; // Soare pentru modul luminos
-    } else {
-        modeIcon.innerHTML = "🌙"; // Lună pentru modul întunecat
-    }
+    const passwordText = document.getElementById('passwordText');
+    passwordText.textContent = password;
+    passwordText.style.display = "block"; // Se asigură că parola apare
 }

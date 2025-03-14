@@ -1,7 +1,7 @@
 /* FUNDAL GENERAL */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #121212;
+    background: #121212;
     color: white;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     width: 100%;
     max-width: 650px;
     text-align: center;
@@ -80,7 +80,24 @@ h1 {
 }
 
 /* MOD INTUNECAT */
-.dark-mode { background-color: black; color: white; }
+.dark-mode {
+    background: #121212;
+    color: white;
+}
 
-/* MOD LUMINOS */
-.light-mode { background-color: white; color: black; }
+/* MOD LUMINOS - acum are o culoare mai frumoasă */
+.light-mode {
+    background: linear-gradient(135deg, #f3f3f3, #dcdcdc);
+    color: black;
+}
+
+/* BUTON MOD INTUNECAT/LUMINOS */
+.toggle-mode {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

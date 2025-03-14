@@ -36,25 +36,14 @@ function generatePassword() {
 function copyPassword() {
     const password = document.getElementById('passwordText').textContent;
     if (!password || password === "Parola generată va apărea aici") {
-        showNotification("Nu există o parolă de copiat!");
         return;
     }
 
     navigator.clipboard.writeText(password).then(() => {
-        showNotification("Parola a fost copiată în clipboard!");
+        showNotification("Parola a fost copiată!");
     }).catch(err => {
         console.error("Eroare la copiere: ", err);
     });
-}
-
-function showNotification(message) {
-    const notification = document.getElementById("notification");
-    notification.textContent = message;
-    notification.classList.add("show");
-
-    setTimeout(() => {
-        notification.classList.remove("show");
-    }, 2000);
 }
 
 function toggleDarkMode() {

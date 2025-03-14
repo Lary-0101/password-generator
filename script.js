@@ -46,6 +46,16 @@ function copyPassword() {
     });
 }
 
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.classList.add("show");
+
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 2000);
+}
+
 function toggleDarkMode() {
     document.body.classList.toggle("light-mode");
     document.body.classList.toggle("dark-mode");

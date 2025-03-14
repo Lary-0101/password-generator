@@ -32,7 +32,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* INPUT PENTRU LUNGIMEA PAROLEI - Mai mare */
+/* INPUT PENTRU LUNGIMEA PAROLEI */
 #length {
     font-size: 20px;
     padding: 8px;
@@ -47,20 +47,10 @@ h1 {
 /* SETĂRI - 2 coloane */
 .settings {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     justify-content: center;
     margin-bottom: 20px;
-}
-
-.settings label {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 /* BUTON GENERARE PAROLĂ */
@@ -133,7 +123,7 @@ h1 {
     cursor: pointer;
 }
 
-/* NOTIFICARE */
+/* NOTIFICARE - Apare doar la copiere */
 .notification {
     visibility: hidden;
     background-color: #4CAF50;

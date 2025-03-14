@@ -28,6 +28,8 @@
     border-radius: 5px;
     border: 1px solid white;
     margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .copy-btn {

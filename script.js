@@ -20,7 +20,6 @@ function generatePassword() {
             usedChars.add(randomChar);
         }
     }
-
     document.getElementById('passwordText').textContent = password;
 }
 

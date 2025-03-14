@@ -1,39 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeKeys</title>
+    <title>SafeKeys - Generator de Parole</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-mode">
-    <button class="toggle-mode" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+    
+    <!-- Meniu de navigație păstrând aspectul original -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">🔐 SafeKeys</a>
+            <ul class="nav-links">
+                <li><a href="#generator">⚙️ Generator</a></li>
+                <li><a href="#security">🔒 Securitate</a></li>
+                <li><a href="#about">ℹ️ Despre</a></li>
+            </ul>
+            <select id="languageSelector" onchange="changeLanguage()">
+                <option value="ro">Română</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+    </nav>
 
-    <div class="container">
-        <h1>SafeKeys</h1>
-        <label for="length">Password length:</label>
+    <button class="toggle-mode" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+    
+    <!-- Secțiunea Generatorului de Parole -->
+    <section id="generator" class="container">
+        <h1>🔑 Generator de Parole</h1>
+        <img id="generatorGif" src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Secure Password" class="security-gif">
+        <label for="length">Lungimea parolei:</label>
         <input type="number" id="length" min="1" max="20" value="12">
         
         <div class="settings">
-            <label><input type="checkbox" id="includeSymbols" checked> Symbols</label>
-            <label><input type="checkbox" id="includeNumbers" checked> Numbers</label>
-            <label><input type="checkbox" id="includeLowercase" checked> Lowercase letters</label>
-            <label><input type="checkbox" id="includeUppercase" checked> Uppercase letters</label>
-            <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicates</label>
-            <label><input type="checkbox" id="excludeSimilar"> Exclude similar characters</label>
+            <label><input type="checkbox" id="includeSymbols" checked> ✨ Simboluri</label>
+            <label><input type="checkbox" id="includeNumbers" checked> 🔢 Cifre</label>
+            <label><input type="checkbox" id="includeLowercase" checked> 🔠 Litere mici</label>
+            <label><input type="checkbox" id="includeUppercase" checked> 🔡 Litere mari</label>
+            <label><input type="checkbox" id="excludeDuplicates"> 🚫 Exclude duplicate</label>
+            <label><input type="checkbox" id="excludeSimilar"> ❌ Exclude caractere similare</label>
         </div>
 
         <div class="btn-container">
-            <button onclick="generatePassword()">Generate Password</button>
+            <button onclick="generatePassword()">🔄 Generează Parolă</button>
         </div>
 
         <div class="password-container">
-            <span id="passwordText">Generated password will appear here</span>
-            <button class="copy-btn" onclick="copyPassword()">📋</button>
+            <span id="passwordText">Parola generată va apărea aici</span>
+            <button class="copy-btn" onclick="copyPassword()">📋 Copiază</button>
         </div>
+    </section>
 
-        <div id="notification" class="notification">Password copied successfully!</div>
-    </div>
+    <!-- Secțiunea cu sfaturi despre securitate -->
+    <section id="security" class="container">
+        <h2>🔒 Importanța parolelor securizate</h2>
+        <img id="securityGif" src="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif" alt="Cyber Security" class="security-gif">
+        <p>Utilizarea unei parole puternice este esențială pentru protejarea conturilor online. Parolele slabe pot fi ghicite ușor sau sparte, ducând la furt de date și identitate.</p>
+        <p>Recomandări pentru parole sigure:</p>
+        <ul>
+            <li>✔️ Folosiți un mix de litere mari, mici, numere și simboluri.</li>
+            <li>✔️ Evitați utilizarea cuvintelor comune sau a informațiilor personale.</li>
+            <li>✔️ Folosiți o parolă unică pentru fiecare cont.</li>
+            <li>✔️ Activați autentificarea în doi pași ori de câte ori este posibil.</li>
+        </ul>
+    </section>
+
+    <!-- Secțiunea despre aplicație -->
+    <section id="about" class="container">
+        <h2>ℹ️ Despre SafeKeys</h2>
+        <p>🔹 SafeKeys este un generator de parole simplu, dar puternic, conceput pentru a vă ajuta să creați parole sigure și protejate. Folosiți-l pentru a vă securiza conturile online cu parole unice și puternice.</p>
+        <img id="aboutGif" src="https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif" alt="Security Lock" class="security-gif">
+        <p>🔹 Nu stocăm parolele generate, asigurându-vă confidențialitatea.</p>
+        <p>🔹 Generatorul nostru respectă cele mai bune practici de securitate.</p>
+    </section>
+
+    <footer class="footer">
+        &copy; 2025 SafeKeys - 🔐 Toate drepturile rezervate.
+    </footer>
 
     <script src="script.js"></script>
 </body>

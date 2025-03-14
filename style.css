@@ -70,7 +70,7 @@ h1 {
     background-color: #d63031;
 }
 
-/* CONTAINER PAROLĂ GENERATĂ - Centrat */
+/* CONTAINER PAROLĂ GENERATĂ - Centrat perfect */
 .password-container {
     display: flex;
     align-items: center;
@@ -85,12 +85,14 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    justify-content: space-between;
 }
 
-/* TEXT PAROLĂ CENTRAT */
+/* TEXT PAROLĂ CENTRAT PERFECT */
 #passwordText {
-    flex: 1;
+    flex-grow: 1;
     text-align: center;
+    padding-right: 20px;
 }
 
 /* BUTON COPIERE */

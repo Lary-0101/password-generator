@@ -1,46 +1,38 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeKeys</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body class="dark-mode">
-    <!-- Buton Mod Întunecat/Luminos -->
     <button class="toggle-mode" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
 
     <div class="container">
         <h1>SafeKeys</h1>
-        <label for="length">Lungimea parolei:</label>
+        <label for="length">Password length:</label>
         <input type="number" id="length" min="1" max="20" value="12">
         
         <div class="settings">
-            <label><input type="checkbox" id="includeSymbols" checked> Simboluri</label>
-            <label><input type="checkbox" id="includeNumbers" checked> Cifre</label>
-            <label><input type="checkbox" id="includeLowercase" checked> Litere mici</label>
-            <label><input type="checkbox" id="includeUppercase" checked> Litere mari</label>
-            <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicate</label>
-            <label><input type="checkbox" id="excludeSimilar"> Exclude caractere similare</label>
+            <label><input type="checkbox" id="includeSymbols" checked> Symbols</label>
+            <label><input type="checkbox" id="includeNumbers" checked> Numbers</label>
+            <label><input type="checkbox" id="includeLowercase" checked> Lowercase letters</label>
+            <label><input type="checkbox" id="includeUppercase" checked> Uppercase letters</label>
+            <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicates</label>
+            <label><input type="checkbox" id="excludeSimilar"> Exclude similar characters</label>
         </div>
 
         <div class="btn-container">
-            <button onclick="generatePassword()">Generează Parolă</button>
+            <button onclick="generatePassword()">Generate Password</button>
         </div>
 
         <div class="password-container">
-            <span id="passwordText">Parola generată va apărea aici</span>
+            <span id="passwordText">Generated password will appear here</span>
             <button class="copy-btn" onclick="copyPassword()">📋</button>
         </div>
 
-        <div id="notification" class="notification">Parola a fost copiată!</div>
+        <div id="notification" class="notification">Password copied successfully!</div>
     </div>
 
     <script src="script.js"></script>

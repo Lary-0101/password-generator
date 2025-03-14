@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeKeys - Generator de Parole</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/tooplate-little-fashion.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
         <div class="container">
@@ -18,22 +17,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a id="menu_home" class="nav-link" href="#home">Acasă</a></li>
-                    <li class="nav-item"><a id="menu_generator" class="nav-link" href="#generator">⚙️ Generator</a></li>
-                    <li class="nav-item"><a id="menu_security" class="nav-link" href="#security">🔒 Securitate</a></li>
-                    <li class="nav-item"><a id="menu_about" class="nav-link" href="#about">ℹ️ Despre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#generator">⚙️ Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#security">🔒 Securitate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ℹ️ Despre</a></li>
                 </ul>
-                <select id="languageSelector" class="form-select w-auto ms-3" onchange="changeLanguage()">
-                    <option value="ro">Română</option>
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="es">Español</option>
-                </select>
             </div>
         </div>
     </nav>
-
+    
+    <!-- Hero Section -->
+    <header class="bg-dark text-white text-center py-5">
+        <h1>🔑 Generator de Parole Sigur</h1>
+        <p>Protejează-ți conturile cu parole puternice generate automat.</p>
+        <img src="img/security.gif" class="img-fluid rounded" alt="Secure Passwords">
+    </header>
+    
     <!-- Generator de Parole -->
     <section id="generator" class="container my-5 text-center">
         <h2 class="mb-3">🔑 Generare Parolă</h2>
@@ -56,10 +55,6 @@
                 <input type="checkbox" class="form-check-input" id="includeUppercase" checked>
                 <label class="form-check-label" for="includeUppercase">🔡 Include litere mari</label>
             </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="excludeDuplicates">
-                <label class="form-check-label" for="excludeDuplicates">🚫 Fără caractere duplicate</label>
-            </div>
             <button class="btn btn-danger w-100 mt-3" onclick="generatePassword()">🔄 Generează Parolă</button>
             <div class="mt-3 p-3 bg-light text-dark rounded">
                 <span id="passwordText">Parola generată va apărea aici</span>
@@ -67,11 +62,11 @@
             </div>
         </div>
     </section>
-
+    
     <footer class="footer bg-primary text-white text-center py-3">
         &copy; 2025 SafeKeys - 🔐 Toate drepturile rezervate.
     </footer>
-
+    
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/custom.js"></script>
 </body>

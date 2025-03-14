@@ -36,33 +36,18 @@ function generatePassword() {
 function copyPassword() {
     const password = document.getElementById('passwordText').textContent;
     navigator.clipboard.writeText(password).then(() => {
-        alert("Parola copiată în clipboard!");
+        showNotification("Parola copiată în clipboard!");
     }).catch(err => {
         console.error("Eroare la copiere: ", err);
     });
 }
 
-function savePassword() {
-    const password = document.getElementById('passwordText').textContent;
-    if (!password || password === "Click pentru a copia") {
-        alert("Generează mai întâi o parolă!");
-        return;
-    }
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.classList.add("show");
 
-    const passwordList = document.getElementById('passwordList');
-    const li = document.createElement('li');
-    li.textContent = password;
-
-    // Buton de copiere pentru fiecare parolă salvată
-    const copyBtn = document.createElement('button');
-    copyBtn.textContent = "📋";
-    copyBtn.classList.add('copy-btn');
-    copyBtn.onclick = function () {
-        navigator.clipboard.writeText(password).then(() => {
-            alert("Parola copiată din lista salvărilor!");
-        });
-    };
-
-    li.appendChild(copyBtn);
-    passwordList.appendChild(li);
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 2000);
 }

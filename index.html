@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body class="dark-mode">
-    <button class="toggle-mode" id="modeToggle">🌙</button>
+    <button class="toggle-mode" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
 
     <div class="container">
         <h1>SafeKeys</h1>
@@ -34,11 +34,12 @@
             <button onclick="generatePassword()">Generează Parolă</button>
         </div>
 
-        <div class="password" id="password" onclick="copyPassword()">
-            <span id="passwordText">Click pentru a copia</span>
+        <div class="password-container">
+            <span id="passwordText">Click pe buton pentru a copia</span>
+            <button class="copy-btn" onclick="copyPassword()">📋</button>
         </div>
 
-        <div id="notification" class="notification">Parola copiată!</div>
+        <div id="notification" class="notification">Parola a fost copiată!</div>
     </div>
 
     <script src="script.js"></script>

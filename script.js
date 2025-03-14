@@ -60,6 +60,11 @@ function showNotification(message) {
 function toggleDarkMode() {
     document.body.classList.toggle("light-mode");
     document.body.classList.toggle("dark-mode");
+    
     let modeIcon = document.getElementById("modeToggle");
-    modeIcon.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    if (document.body.classList.contains("light-mode")) {
+        modeIcon.innerHTML = "☀️"; // Soare pentru modul luminos
+    } else {
+        modeIcon.innerHTML = "🌙"; // Lună pentru modul întunecat
+    }
 }

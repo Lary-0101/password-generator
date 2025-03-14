@@ -18,9 +18,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#generator">⚙️ Generator</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#security">🔒 Securitate</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">ℹ️ Despre</a></li>
+                    <li class="nav-item"><a id="menu_home" class="nav-link" href="#home">Acasă</a></li>
+                    <li class="nav-item"><a id="menu_generator" class="nav-link" href="#generator">⚙️ Generator</a></li>
+                    <li class="nav-item"><a id="menu_security" class="nav-link" href="#security">🔒 Securitate</a></li>
+                    <li class="nav-item"><a id="menu_about" class="nav-link" href="#about">ℹ️ Despre</a></li>
                 </ul>
                 <select id="languageSelector" class="form-select w-auto ms-3" onchange="changeLanguage()">
                     <option value="ro">Română</option>
@@ -37,8 +38,8 @@
     
     <!-- Hero Section -->
     <header class="bg-dark text-white text-center py-5">
-        <h1>🔑 Generator de Parole Sigur</h1>
-        <p>Protejează-ți conturile cu parole puternice generate automat.</p>
+        <h1 id="pageTitle">🔑 Generator de Parole Sigur</h1>
+        <p id="pageDescription">Protejează-ți conturile cu parole puternice generate automat.</p>
     </header>
 
     <!-- Generator de Parole -->
@@ -47,34 +48,32 @@
         <div class="card p-4 shadow-lg mx-auto" style="max-width: 500px;">
             <label for="length" class="form-label">Lungimea parolei:</label>
             <input type="number" id="length" class="form-control mb-3" min="6" max="20" value="12">
-            <button class="btn btn-danger w-100" onclick="generatePassword()">🔄 Generează Parolă</button>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="includeSymbols" checked>
+                <label class="form-check-label" for="includeSymbols">✨ Include simboluri</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="includeNumbers" checked>
+                <label class="form-check-label" for="includeNumbers">🔢 Include cifre</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="includeLowercase" checked>
+                <label class="form-check-label" for="includeLowercase">🔠 Include litere mici</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="includeUppercase" checked>
+                <label class="form-check-label" for="includeUppercase">🔡 Include litere mari</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="excludeDuplicates">
+                <label class="form-check-label" for="excludeDuplicates">🚫 Fără caractere duplicate</label>
+            </div>
+            <button class="btn btn-danger w-100 mt-3" onclick="generatePassword()">🔄 Generează Parolă</button>
             <div class="mt-3 p-3 bg-light text-dark rounded">
                 <span id="passwordText">Parola generată va apărea aici</span>
                 <button class="btn btn-outline-primary ms-2" onclick="copyPassword()">📋 Copiază</button>
             </div>
         </div>
-    </section>
-
-    <!-- Sfaturi de securitate -->
-    <section id="security" class="container my-5 text-center">
-        <h2>🔒 Importanța parolelor securizate</h2>
-        <p>Evitați parolele slabe! Iată câteva recomandări pentru protecția conturilor:</p>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <ul class="list-group text-start">
-                    <li class="list-group-item">✔️ Folosiți o combinație de litere, cifre și simboluri.</li>
-                    <li class="list-group-item">✔️ Nu reutilizați parolele pe mai multe conturi.</li>
-                    <li class="list-group-item">✔️ Activați autentificarea în doi pași.</li>
-                    <li class="list-group-item">✔️ Evitați folosirea numelui sau a datelor personale.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Despre aplicație -->
-    <section id="about" class="container my-5 text-center">
-        <h2>ℹ️ Despre SafeKeys</h2>
-        <p>SafeKeys este un generator de parole securizat, conceput pentru a vă proteja datele online.</p>
     </section>
 
     <footer class="footer bg-primary text-white text-center py-3">

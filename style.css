@@ -70,7 +70,7 @@ h1 {
     background-color: #d63031;
 }
 
-/* CONTAINER PAROLĂ GENERATĂ - Ajustat să fie mai mare și centrat corect */
+/* CONTAINER PAROLĂ GENERATĂ - Centrat și vizibil */
 .password-container {
     display: flex;
     align-items: center;
@@ -81,8 +81,8 @@ h1 {
     border: 1px solid white;
     margin-top: 20px;
     width: 100%;
-    max-width: 550px; /* Lățime mai mare */
-    min-height: 50px; /* Asigură spațiu pentru afișarea parolei */
+    max-width: 550px;
+    min-height: 50px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -91,12 +91,14 @@ h1 {
 /* TEXT PAROLĂ CENTRAT PERFECT */
 #passwordText {
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    padding: 5px;
     color: white;
-    min-width: 200px; /* Se asigură că textul nu se comprimă prea mult */
+    min-width: 250px;
 }
 
 /* BUTON COPIERE */

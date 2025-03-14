@@ -35,6 +35,11 @@ function generatePassword() {
 
 function copyPassword() {
     const password = document.getElementById('passwordText').textContent;
+    if (!password || password === "Parola generată va apărea aici") {
+        showNotification("Nu există o parolă de copiat!");
+        return;
+    }
+
     navigator.clipboard.writeText(password).then(() => {
         showNotification("Parola a fost copiată în clipboard!");
     }).catch(err => {

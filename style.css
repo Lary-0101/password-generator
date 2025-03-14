@@ -1,7 +1,7 @@
-/* FUNDAL GENERAL */
+/* FUNDAL GENERAL - Gradient modern */
 body {
     font-family: 'Poppins', sans-serif;
-    background: #121212;
+    background: linear-gradient(135deg, #1e1e1e, #121212);
     color: white;
     display: flex;
     justify-content: center;
@@ -13,103 +13,131 @@ body {
     position: relative;
 }
 
-/* CONTAINER PRINCIPAL */
+/* CONTAINER PRINCIPAL - Stil modern cu efect 3D */
 .container {
     background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
     width: 100%;
-    max-width: 650px;
+    max-width: 700px;
     text-align: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease-in-out;
 }
 
 /* TITLU */
 h1 {
     color: #ff4757;
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* INPUT PENTRU LUNGIMEA PAROLEI */
 #length {
     font-size: 20px;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
-    border-radius: 5px;
-    border: 1px solid #ff4757;
+    border-radius: 8px;
+    border: 2px solid #ff4757;
     background: #222;
     color: white;
-    width: 80px;
+    width: 100px;
+    font-weight: bold;
 }
 
 /* SETĂRI - 2 coloane frumos aranjate */
 .settings {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-/* BUTON GENERARE PAROLĂ */
+/* BUTON GENERARE PAROLĂ - Efect 3D */
 .btn-container button {
-    background-color: #ff4757;
+    background: linear-gradient(145deg, #ff5f6d, #ff4757);
     color: white;
     font-weight: bold;
     border: none;
-    padding: 14px;
-    font-size: 18px;
+    padding: 16px;
+    font-size: 20px;
     cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.5);
 }
 
 .btn-container button:hover {
-    background-color: #d63031;
+    background: linear-gradient(145deg, #ff3b4d, #d63031);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.6);
 }
 
-/* CONTAINER PAROLĂ GENERATĂ - Centrat perfect */
+/* CONTAINER PAROLĂ GENERATĂ - Mai mare și centrat perfect */
 .password-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrare orizontală */
+    justify-content: center;
     background: rgba(255, 255, 255, 0.2);
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid white;
-    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    margin-top: 25px;
     width: 100%;
-    max-width: 500px;
-    font-size: 20px;
+    max-width: 600px;  /* Mai lat */
+    font-size: 24px;
     font-weight: bold;
     text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
 /* TEXT PAROLĂ CENTRAT PERFECT */
 #passwordText {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Centrare text */
+    justify-content: center;
     align-items: center;
-    padding: 0 10px; /* Mic spațiu pentru aspect */
-    min-height: 40px; /* Se asigură că rămâne aliniat */
+    padding: 10px;
+    min-height: 50px;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
 }
 
-/* BUTON COPIERE */
+/* ANIMAȚIE APARIȚIE PAROLĂ */
+#passwordText {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.password-container.show #passwordText {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* BUTON COPIERE - Efect vizual îmbunătățit */
 .copy-btn {
-    background-color: #ff4757;
+    background: linear-gradient(145deg, #ff5f6d, #ff4757);
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 12px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
 }
 
 .copy-btn:hover {
-    background-color: #d63031;
+    background: linear-gradient(145deg, #ff3b4d, #d63031);
+    transform: scale(1.1);
 }
 
 /* MOD INTUNECAT */
@@ -141,15 +169,16 @@ h1 {
     background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 18px;
     transition: visibility 0s, opacity 0.5s linear;
     opacity: 0;
+    font-weight: bold;
 }
 
 .notification.show {

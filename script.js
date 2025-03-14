@@ -40,7 +40,7 @@ function copyPassword() {
     }
 
     navigator.clipboard.writeText(password).then(() => {
-        showNotification("Parola a fost copiată!");
+        showNotification("Parola a fost copiată cu succes!");
     }).catch(err => {
         console.error("Eroare la copiere: ", err);
     });

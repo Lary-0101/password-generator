@@ -36,7 +36,7 @@ function generatePassword() {
 function copyPassword() {
     const password = document.getElementById('passwordText').textContent;
     navigator.clipboard.writeText(password).then(() => {
-        showNotification("Parola copiată în clipboard!");
+        showNotification("Parola a fost copiată în clipboard!");
     }).catch(err => {
         console.error("Eroare la copiere: ", err);
     });
@@ -50,4 +50,11 @@ function showNotification(message) {
     setTimeout(() => {
         notification.classList.remove("show");
     }, 2000);
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("light-mode");
+    document.body.classList.toggle("dark-mode");
+    let modeIcon = document.getElementById("modeToggle");
+    modeIcon.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
 }

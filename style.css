@@ -1,9 +1,10 @@
-/* Stil general */
+/* Stil General */
 body {
     font-family: 'Poppins', sans-serif;
     background: #2b2b2b;
     color: white;
     text-align: center;
+    transition: background 0.3s;
 }
 
 .light-mode {

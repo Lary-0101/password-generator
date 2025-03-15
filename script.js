@@ -1,43 +1,43 @@
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("modeToggle").addEventListener("click", toggleDarkMode);
+});
+
 function generatePassword() {
     const length = parseInt(document.getElementById('length').value);
     let charset = "";
+
     if (document.getElementById('includeLowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
     if (document.getElementById('includeUppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (document.getElementById('includeNumbers').checked) charset += "0123456789";
-    if (document.getElementById('includeSymbols').checked) charset += "!@#$%^&*()+-=";
+    if (document.getElementById('includeSymbols').checked) charset += "!@#$%^&*()_+-=[]{}|;:',.<>?/";
 
-    if (!charset.length) {
-        alert("Selectează cel puțin un tip de caracter!");
+    if (charset === "") {
+        alert("Selectează cel puțin o categorie de caractere!");
         return;
     }
 
     let password = "";
-    let usedChars = new Set();
-    while (password.length < length) {
-        let randomChar = charset.charAt(Math.floor(Math.random() * charset.length));
-        if (!document.getElementById('excludeDuplicates').checked || !usedChars.has(randomChar)) {
-            password += randomChar;
-            usedChars.add(randomChar);
-        }
+    for (let i = 0; i < length; i++) {
+        password += charset.charAt(Math.floor(Math.random() * charset.length));
     }
+
     document.getElementById('passwordText').textContent = password;
 }
 
 function copyPassword() {
-    navigator.clipboard.writeText(document.getElementById('passwordText').textContent)
-        .then(() => alert("Parola copiată cu succes!"));
+    const password = document.getElementById('passwordText').textContent;
+    if (!password || password === "Click pentru a copia") {
+        alert("Nu există nicio parolă de copiat!");
+        return;
+    }
+
+    navigator.clipboard.writeText(password);
+    alert("Parola copiată în clipboard!");
 }
 
 function toggleDarkMode() {
     document.body.classList.toggle("light-mode");
     document.body.classList.toggle("dark-mode");
-    document.getElementById("modeToggle").innerHTML = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    let modeIcon = document.getElementById("modeToggle");
+    modeIcon.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
 }
-
-window.onload = function() {
-    if (localStorage.getItem("darkMode") === "light") {
-        document.body.classList.add("light-mode");
-        document.body.classList.remove("dark-mode");
-        document.getElementById("modeToggle").innerHTML = "☀️";
-    }
-};

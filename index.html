@@ -1,20 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator de Parole</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-</head>
-<body class="dark-mode">
-    <button class="toggle-mode" id="modeToggle">🌙</button>
+    <title>SafeKeys - Generator de Parole</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script defer src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        p {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .settings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 14px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ff5f6d, #ff6b92);
+        }
+
+        .password-container {
+            font-size: 22px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-        <h1>Generator de Parole</h1>
+        <h1>🔑 SafeKeys - Generator de Parole</h1>
+        <p>Generează parole sigure și personalizate cu un singur click!</p>
+        
         <label for="length">Lungimea parolei:</label>
-        <input type="number" id="length" min="1" max="20" value="12">
+        <input type="number" id="length" min="6" max="32" value="12">
         
         <div class="settings">
             <label><input type="checkbox" id="includeSymbols" checked> Simboluri</label>
@@ -22,19 +93,14 @@
             <label><input type="checkbox" id="includeLowercase" checked> Litere mici</label>
             <label><input type="checkbox" id="includeUppercase" checked> Litere mari</label>
             <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicate</label>
-            <label><input type="checkbox" id="excludeSimilar"> Exclude caractere similare</label>
         </div>
-
-        <div class="btn-container">
-            <button onclick="generatePassword()">Generează Parolă</button>
-        </div>
-
-        <div class="password" id="password">
-            <span id="passwordText">Click pentru a copia</span>
+        
+        <button onclick="generatePassword()">🎲 Generează Parolă</button>
+        
+        <div class="password-container">
+            <span id="passwordText">🔐 Click pentru a copia</span>
             <button class="copy-btn" onclick="copyPassword()">📋</button>
         </div>
     </div>
-
-    <script src="assets/script.js"></script>
 </body>
 </html>

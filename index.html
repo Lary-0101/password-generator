@@ -3,33 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeKeys </title>
+    <title>SafeKeys</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>🔑 SafeKeys </h1>
-        <p>Generează parole sigure și personalizate cu un singur click!</p>
-        
-        <label for="length">Lungimea parolei:</label>
-        <input type="number" id="length" min="5" max="32" value="12">
-        
-        <div class="settings">
-            <label><input type="checkbox" id="includeSymbols" checked> Simboluri</label>
-            <label><input type="checkbox" id="includeNumbers" checked> Cifre</label>
-            <label><input type="checkbox" id="includeLowercase" checked> Litere mici</label>
-            <label><input type="checkbox" id="includeUppercase" checked> Litere mari</label>
-            <label><input type="checkbox" id="excludeDuplicates"> Exclude duplicate</label>
-        </div>
-        
-        <button onclick="generatePassword()">🎲 Generează Parolă</button>
-        
-        <div class="password-container">
-            <span id="passwordText" onclick="copyPassword()">🔐 Click pentru a copia</span>
-            <button class="copy-btn" onclick="copyPassword()">📋</button>
-        </div>
-    </div>
+    <header>
+        <h1>SafeKeys</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="generator.html">Generator</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Protejează-ți conturile cu parole sigure!</h2>
+        <p>SafeKeys te ajută să generezi parole complexe și sigure rapid.</p>
+        <a href="generator.html" class="btn">Lansează Generatorul</a>
+    </section>
 </body>
 </html>

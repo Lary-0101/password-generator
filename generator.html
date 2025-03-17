@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generator de Parole</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
@@ -22,7 +23,24 @@
 
     <section class="generator">
         <h2>Generator de Parole</h2>
-        <iframe src="https://safekeys.site/app" width="100%" height="600px" style="border:none;"></iframe>
+        <div class="container">
+            <label for="length">Lungimea parolei:</label>
+            <input type="number" id="length" min="5" max="32" value="12">
+
+            <div class="settings">
+                <label><input type="checkbox" id="includeSymbols" checked> Simboluri</label>
+                <label><input type="checkbox" id="includeNumbers" checked> Cifre</label>
+                <label><input type="checkbox" id="includeLowercase" checked> Litere mici</label>
+                <label><input type="checkbox" id="includeUppercase" checked> Litere mari</label>
+            </div>
+
+            <button onclick="generatePassword()">🎲 Generează Parolă</button>
+
+            <div class="password-container">
+                <span id="passwordText" onclick="copyPassword()">🔐 Click pentru a copia</span>
+                <button class="copy-btn" onclick="copyPassword()">📋</button>
+            </div>
+        </div>
     </section>
 </body>
 </html>

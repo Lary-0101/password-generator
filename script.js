@@ -1,23 +1,28 @@
-function generatePassword() {
-    const length = parseInt(document.getElementById('length').value);
-    let charset = "";
-    if (document.getElementById('includeLowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (document.getElementById('includeUppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    if (document.getElementById('includeNumbers').checked) charset += "0123456789";
-    if (document.getElementById('includeSymbols').checked) charset += "!@#$%^&*()_+-=[]{}|;:',.<>?/";
-    if (charset === "") {
-        alert("Selectează cel puțin o categorie de caractere!");
-        return;
-    }
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        password += charset.charAt(Math.floor(Math.random() * charset.length));
-    }
-    document.getElementById('passwordText').textContent = password;
-}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator de Parole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SafeKeys - Generator</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="generator.html">Generator</a></li>
+            </ul>
+        </nav>
+    </header>
 
-function copyPassword() {
-    const password = document.getElementById('passwordText').textContent;
-    navigator.clipboard.writeText(password);
-    alert("Parola copiată în clipboard!");
-}
+    <section class="generator">
+        <h2>Generator de Parole</h2>
+        <iframe src="https://safekeys.site/app" width="100%" height="600px" style="border:none;"></iframe>
+    </section>
+</body>
+</html>

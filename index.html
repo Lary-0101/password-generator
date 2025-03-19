@@ -6,7 +6,161 @@
   <title>SafeKeys - Protejează-ți Datele!</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css"> <!-- Se va lega fișierul CSS -->
+  
+  <style>
+    /* Fundal general */
+    body {
+      background-color: #f5f5f7; /* Fundal deschis */
+      color: #2c3e50; /* Text închis */
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #1c2b40; /* Albastru închis */
+      padding: 15px 20px;
+    }
+
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #ffffff;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #f5f5f7;
+    }
+
+    /* HOME - Fundal nou */
+.hero {
+  background: linear-gradient(135deg, #0074cc, #f5f5f7); /* Albastru deschis spre alb */
+  color: #ffffff;
+  text-align: center;
+  padding: 140px 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Titlu SafeKeys */
+.hero-title {
+  font-size: 64px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Umbră subtilă pentru claritate */
+  color: #ffffff; /* Alb pur */
+}
+
+/* Citat sub titlu */
+.hero-quote {
+  font-size: 22px;
+  font-style: italic;
+  color: #004a99; /* Nuanță mai închisă de albastru pentru un efect profesional */
+}
+
+/* Buton principal îmbunătățit */
+.btn-modern {
+  background-color: #005fa3; /* Albastru mai vibrant */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 116, 204, 0.3);
+}
+
+.btn-modern:hover {
+  background-color: #004a99;
+  transform: scale(1.1);
+}
+
+
+    /* Buton */
+    .btn-modern {
+      background-color: #0074cc;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-modern:hover {
+      background-color: #005fa3;
+      transform: scale(1.1);
+    }
+
+    /* Secțiuni */
+    .section {
+      background-color: #ffffff;
+      color: #2c3e50;
+      padding: 80px 0;
+    }
+
+    /* DESPRE */
+    .about-section {
+      background: #ffffff;
+      color: #333;
+      padding: 80px 0;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-text {
+      flex: 1;
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.6;
+      padding-right: 20px;
+    }
+
+    /* BLOG */
+    #blog {
+      background-color: #fdf6f0;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid #ccc;
+      padding: 15px;
+    }
+
+    .faq-item h4 {
+      color: #0074cc;
+      cursor: pointer;
+    }
+
+    .faq-item p {
+      display: none;
+      color: #2c3e50;
+    }
+
+    /* Contact */
+    .contact-section {
+      background: #1c2b40;
+      color: #ffffff;
+      padding: 60px 0;
+    }
+
+    .contact-info i {
+      color: #f1c40f;
+    }
+
+    /* Footer */
+    .footer {
+      background: #162a4f;
+      color: #ffffff;
+      padding: 20px 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -38,47 +192,376 @@
   </div>
 </header>
 
-<!-- Generator Parolă -->
-<section id="generator" class="section text-center" style="background-color: #f9f9f9; padding: 80px 0;">
+<style>
+  /* Navbar */
+  .navbar {
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Gradient elegant de la albastru la roz */
+    padding: 15px 20px;
+  }
+
+  .navbar-brand, .navbar-nav .nav-link {
+    color: white;
+    transition: 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #f1f1f1;
+  }
+
+  /* HOME */
+  .hero {
+    background: linear-gradient(135deg, rgba(72, 61, 139, 0.8), rgba(123, 104, 238, 0.8)); /* Violet subtil */
+    color: white;
+    text-align: center;
+    padding: 140px 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    animation: fadeInUp 2s ease-out;
+  }
+
+  .hero-title {
+    font-size: 72px;
+    font-weight: bold;
+    color: #FFD700; /* Aurie pentru contrast */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    animation: slideIn 1.5s ease-out;
+  }
+
+  .hero-quote {
+    font-size: 24px;
+    font-style: italic;
+    color: #ffffff;
+    margin-top: 20px;
+    animation: fadeInUp 2s ease-out 1s;
+  }
+
+  .btn-modern {
+    background: #ff5c8d;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 30px;
+    animation: pulse 1.5s infinite;
+  }
+
+  .btn-modern:hover {
+    background: #ff416c;
+    transform: scale(1.1);
+  }
+
+  /* Animatii */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 92, 141, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(255, 92, 141, 0.8);
+    }
+  }
+</style>
+
+<!-- DESPRE -->
+<section id="about" class="about-section">
   <div class="container">
-    <h2 class="fw-bold" style="color: #111;">Generator Parolă</h2>
-    
-    <!-- Formular pentru opțiuni -->
-    <form id="password-options-form">
-      <div class="form-group">
-        <label for="length">Lungimea parolei:</label>
-        <input type="number" id="length" value="12" class="form-control" style="width: 100px; display: inline-block;">
+    <h2 class="section-title">Despre SafeKeys</h2>
+    <div class="about-content">
+      <!-- Text pe partea stângă -->
+      <div class="about-text">
+        <p>
+          SafeKeys este un generator modern de parole, creat pentru a oferi utilizatorilor parole puternice și sigure. 
+          Într-o lume digitală unde securitatea este esențială, SafeKeys ajută la protejarea datelor personale prin generarea 
+          de parole complexe și unice.
+        </p>
+        <p>
+          Misiunea noastră este să oferim o soluție simplă și eficientă pentru securizarea conturilor online. 
+          Folosind tehnologii avansate, SafeKeys creează parole care respectă cele mai bune practici în securitatea informatică.
+        </p>
       </div>
 
-      <div class="form-group">
-        <label><input type="checkbox" id="uppercase" checked> Litere mari</label><br>
-        <label><input type="checkbox" id="lowercase" checked> Litere mici</label><br>
-        <label><input type="checkbox" id="numbers" checked> Cifre</label><br>
-        <label><input type="checkbox" id="symbols" checked> Simboluri</label><br>
-        <label><input type="checkbox" id="avoid-similar"> Evită caracterele similare</label><br>
-        <label><input type="checkbox" id="easy-read"> Ușor de citit</label><br>
-        <label><input type="checkbox" id="easy-type"> Ușor de tastat</label><br>
+      <!-- GIF pe partea dreaptă -->
+      <div class="about-gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajZveHprNzI0eGxqdHFmMG5xaXdxMTRlN2ltbGtrdjg5czBhbmZkbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OgqrzmqxVUIE8/giphy.gif" alt="GIF securitate" class="gif">
       </div>
-
-      <button type="button" class="btn-modern" onclick="generatePassword()">Generează Parola</button>
-    </form>
-    
-    <!-- Afișarea parolei generate -->
-    <div class="mt-4">
-      <label for="password" class="form-label">Parola generată:</label>
-      <input type="text" id="password" class="form-control" readonly style="font-size: 18px; width: 100%; max-width: 400px; margin: 20px auto;">
     </div>
-    
-    <!-- Buton de copiere -->
-    <button id="copy-btn" class="btn-modern" onclick="copyPassword()" style="display: none;">Copiază Parola</button>
-    
-    <!-- Mesaj de succes -->
-    <div id="message" style="display: none; color: green; margin-top: 10px;">Parola a fost copiată!</div>
   </div>
 </section>
 
-<!-- Script JavaScript -->
-<script src="script.js"></script> <!-- Se va lega fișierul JS -->
+<style>
+.about-section {
+  background: white; /* Fundal alb pentru un aspect curat */
+  color: #333; /* Gri închis pentru text */
+  padding: 80px 0;
+}
 
+/* Titlu albastru închis */
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #1e3c72; /* Albastru închis */
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Layout: Text în stânga, GIF în dreapta */
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Text pe partea stângă */
+.about-text {
+  flex: 1;
+  max-width: 500px;
+  font-size: 18px;
+  line-height: 1.6;
+  padding-right: 20px;
+}
+
+/* GIF pe partea dreaptă */
+.about-gif {
+  flex: 1;
+  text-align: right;
+}
+
+.about-gif .gif {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+</style>
+
+<!-- BLOG -->
+<section id="blog" class="section text-center" style="background-color: #fdf6f0; padding: 80px 0;">
+  <div class="container">
+    <h2 class="fw-bold" style="color: #111;">Ce face o parolă sigură?</h2>
+    <div class="row mt-4">
+      
+      <!-- Card 1: Lungime -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm" style="border-radius: 15px; border: none;">
+          <div class="text-center">
+            <img src="https://cdn-icons-png.flaticon.com/128/681/681494.png" alt="Lungime" width="60">
+          </div>
+          <h4 class="mt-3 fw-bold">Lungimea</h4>
+          <p>Cu cât o parolă este mai lungă, cu atât este mai sigură. Se recomandă o lungime de cel puțin **12 caractere**.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Complexitate -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm" style="border-radius: 15px; border: none;">
+          <div class="text-center">
+            <img src="https://cdn-icons-png.flaticon.com/128/482/482991.png" alt="Complexitate" width="60">
+          </div>
+          <h4 class="mt-3 fw-bold">Complexitatea</h4>
+          <p>O parolă sigură trebuie să conțină o combinație de **litere mari și mici, cifre și simboluri**, pentru a fi greu de ghicit.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Unică -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm" style="border-radius: 15px; border: none;">
+          <div class="text-center">
+            <img src="https://cdn-icons-png.flaticon.com/128/3524/3524659.png" alt="Unică" width="60">
+          </div>
+          <h4 class="mt-3 fw-bold">Unică</h4>
+          <p>O parolă puternică trebuie să fie **unică pentru fiecare cont**, reducând astfel riscul în cazul unui atac informatic.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container">
+    <h2 class="fw-bold text-center">Întrebări Frecvente</h2>
+    
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 Cum funcționează SafeKeys?</h4>
+      <p class="faq-answer">SafeKeys folosește un generator avansat de parole pentru a crea combinații unice și sigure.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 De ce este important să folosesc parole puternice?</h4>
+      <p class="faq-answer">Parolele puternice reduc riscul ca hackerii să îți acceseze conturile și să fure informații personale.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 Pot salva parolele în SafeKeys?</h4>
+      <p class="faq-answer">Nu, SafeKeys nu stochează parole pentru a asigura securitatea maximă a utilizatorilor.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 Care este lungimea minimă recomandată pentru o parolă?</h4>
+      <p class="faq-answer">Se recomandă cel puțin 12 caractere pentru a avea o parolă sigură.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 Ce este autentificarea în doi pași (2FA)?</h4>
+      <p class="faq-answer">Autentificarea în doi pași adaugă un strat suplimentar de securitate, necesitând un cod unic la fiecare autentificare.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 De ce să nu folosesc aceeași parolă pentru mai multe conturi?</h4>
+      <p class="faq-answer">Dacă un site este compromis, toate conturile tale pot fi accesate cu acea parolă. Folosește parole unice pentru fiecare cont.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4 class="faq-question">🔹 Cum pot memora mai ușor parolele?</h4>
+      <p class="faq-answer">Poți folosi un manager de parole care le salvează în siguranță și te ajută să le accesezi rapid.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Stiluri pentru FAQ -->
+<style>
+  .faq-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .faq-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .faq-question {
+    color: #ff5722;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .faq-answer {
+    display: none;
+    color: #333;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+</style>
+
+<!-- Script pentru FAQ -->
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener("click", function() {
+      // Ascunde toate răspunsurile înainte de a-l afișa pe cel selectat
+      document.querySelectorAll('.faq-item').forEach(i => {
+        if (i !== item) i.classList.remove("active");
+      });
+
+      // Alternarea clasei active
+      this.classList.toggle("active");
+    });
+  });
+</script>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container text-center">
+    <h2 class="contact-title">Contact</h2>
+    <p class="contact-info"><i class="fas fa-envelope"></i> <strong>safekeys@gmail.com</strong></p>
+    <p class="contact-info"><i class="fas fa-phone-alt"></i> <strong>+40 123 456 789</strong></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container text-center">
+    <p>© 2025 SafeKeys. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+
+/* CONTACT - Design inspirat din 1Password */
+.contact-section {
+  background: #008080; /* Albastru închis */
+  color: #ffffff; /* Text alb */
+  padding: 60px 0;
+}
+
+.contact-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-info i {
+  color: #f1c40f; /* Galben auriu pentru accent */
+  margin-right: 8px;
+}
+
+/* FOOTER */
+.footer {
+  background: #008080; /* Albastru și mai închis pentru contrast */
+  color: #ffffff;
+  padding: 20px 0;
+  font-size: 16px;
+}
+
+.footer p {
+  margin: 0;
+  opacity: 0.8;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

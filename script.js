@@ -12,6 +12,8 @@ document.getElementById("generate").addEventListener("click", async function () 
     const easyType = document.getElementById("easy-type").checked;
 
     try {
+        console.log("🔄 Trimit cererea către backend...");
+
         const response = await fetch(`${backendURL}/generate-password`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -19,25 +21,14 @@ document.getElementById("generate").addEventListener("click", async function () 
         });
 
         if (!response.ok) {
-            throw new Error("Eroare la generarea parolei");
+            throw new Error(`Eroare server: ${response.status}`);
         }
 
         const data = await response.json();
         document.getElementById("password").value = data.password;
+        console.log("✅ Parolă generată:", data.password);
     } catch (error) {
-        console.error("Eroare:", error);
-        alert("A apărut o problemă. Verifică conexiunea!");
-    }
-});
-
-// Funcție pentru copierea parolei
-document.getElementById("copy").addEventListener("click", function () {
-    let passwordField = document.getElementById("password");
-    if (passwordField.value !== "") {
-        passwordField.select();
-        document.execCommand("copy");
-        alert("Parola copiată!");
-    } else {
-        alert("Nu există nicio parolă de copiat!");
+        console.error("❌ Eroare la generarea parolei:", error);
+        alert("A apărut o problemă. Verifică conexiunea la server!");
     }
 });

@@ -10,20 +10,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/generate-password", (req, res) => {
-    const length = 12;
+    const length = parseInt(req.query.length) || 12;
+
     const options = {
-        lowercase: true,
-        uppercase: true,
-        numbers: true,
-        symbols: true,
-        noSimilar: false,
-        spaces: false,
-        readable: false,
-        easyType: false
+        lowercase: req.query.lowercase === 'true',
+        uppercase: req.query.uppercase === 'true',
+        numbers: req.query.numbers === 'true',
+        symbols: req.query.symbols === 'true',
+        noSimilar: req.query.noSimilar === 'true',
+        readable: req.query.easyRead === 'true',
+        easyType: req.query.easyType === 'true'
     };
 
     const password = generatePassword({ ...options, length });
-    res.json({ password: password.trim() }); // Doar acest res.json trebuie să existe!
+    res.json({ password: password.trim() });
 });
 
 function generatePassword(options) {
@@ -33,7 +33,7 @@ function generatePassword(options) {
     if (options.numbers) chars += "0123456789";
     if (options.symbols) chars += "!@#$%^&*()-_=+[]{}|;:,.<>?";
 
-    if (options.noSimilar) chars = chars.replace(/[oO0l1]/g, "");
+    if (options.noSimilar || options.readable) chars = chars.replace(/[oO0l1]/g, "");
     if (options.easyType) chars = chars.replace(/[!@#$%^&*()]/g, "");
 
     if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
@@ -43,7 +43,7 @@ function generatePassword(options) {
         password += chars[Math.floor(Math.random() * chars.length)];
     }
 
-    return password.trim(); // returnezi direct parola aici
+    return password.trim();
 }
 
 // Pornim serverul

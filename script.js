@@ -1,3 +1,5 @@
+const backendURL = "https://safekeys-backend.onrender.com"; // Pune URL-ul backend-ului tău
+
 document.getElementById("generate").addEventListener("click", async function() {
     const length = document.getElementById("length").value;
     const uppercase = document.getElementById("uppercase").checked;
@@ -5,7 +7,7 @@ document.getElementById("generate").addEventListener("click", async function() {
     const numbers = document.getElementById("numbers").checked;
     const symbols = document.getElementById("symbols").checked;
 
-    const response = await fetch("/generate-password", {
+    const response = await fetch(`${backendURL}/generate-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols })
@@ -13,11 +15,4 @@ document.getElementById("generate").addEventListener("click", async function() {
 
     const data = await response.json();
     document.getElementById("password").value = data.password;
-});
-
-document.getElementById("copy").addEventListener("click", function() {
-    let passwordField = document.getElementById("password");
-    passwordField.select();
-    document.execCommand("copy");
-    alert("Parola copiată!");
 });

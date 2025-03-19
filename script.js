@@ -1,5 +1,16 @@
 function generatePassword() {
-  fetch("https://safekeys-backend.onrender.com/generate-password")
+  const length = parseInt(document.getElementById('length').value, 10);
+  const uppercase = document.getElementById('uppercase').checked;
+  const lowercase = document.getElementById('lowercase').checked;
+  const numbers = document.getElementById('numbers').checked;
+  const symbols = document.getElementById('symbols').checked;
+  const avoidSimilar = document.getElementById('avoid-similar').checked;
+  const easyRead = document.getElementById('easy-read').checked;
+  const easyType = document.getElementById('easy-type').checked;
+
+  const url = `https://safekeys-backend.onrender.com/generate-password?length=${length}&uppercase=${uppercase}&lowercase=${lowercase}&numbers=${numbers}&symbols=${symbols}&noSimilar=${avoidSimilar}&easyRead=${easyRead}&easyType=${easyType}`;
+
+  fetch(url)
     .then(response => response.json())
     .then(data => {
       document.getElementById('password').value = data.password;
@@ -20,7 +31,6 @@ function copyPassword() {
 
   passwordField.select();
   document.execCommand("copy");
-
   document.getElementById('message').style.display = "block";
 }
 

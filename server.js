@@ -5,6 +5,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// ✅ Verificare dacă backend-ul funcționează
+app.get("/", (req, res) => {
+    res.send("✅ Backend-ul SafeKeys funcționează!");
+});
+
 function generatePassword(options) {
     let chars = "";
     if (options.lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
@@ -38,7 +43,7 @@ function generatePassword(options) {
 app.post("/generate-password", (req, res) => {
     let { length } = req.body;
 
-    // Verificăm dacă `length` este un număr valid
+    // ✅ Verificăm dacă `length` este un număr valid
     length = parseInt(length, 10);
     if (isNaN(length) || length < 6 || length > 25) {
         return res.status(400).json({ error: "⚠️ Lungimea parolei trebuie să fie între 6 și 25 de caractere!" });
@@ -48,7 +53,7 @@ app.post("/generate-password", (req, res) => {
     res.json({ password });
 });
 
-// Portul pe care rulează serverul
+// ✅ Portul pe care rulează serverul
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);

@@ -5,38 +5,49 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-function generatePassword(options) {
-    const chars = {
-        lowercase: "abcdefghijklmnopqrstuvwxyz",
-        uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        numbers: "0123456789",
-        symbols: "!@#$%^&*()"
+app.get("/", (req, res) => {
+    res.send("✅ Backend-ul SafeKeys funcționează!");
+});
+
+app.get("/generate-password", (req, res) => {
+    const length = 12;
+    const options = {
+        lowercase: true,
+        uppercase: true,
+        numbers: true,
+        symbols: true,
+        noSimilar: false,
+        spaces: false,
+        readable: false,
+        easyType: false
     };
 
-    let availableChars = "";
-    if (options.lowercase) availableChars += chars.lowercase;
-    if (options.uppercase) availableChars += chars.uppercase;
-    if (options.numbers) availableChars += chars.numbers;
-    if (options.symbols) availableChars += chars.symbols;
-
-    if (availableChars.length === 0) {
-        return "Alege cel puțin un set de caractere!";
-    }
-
-    let password = "";
-    for (let i = 0; i < options.length; i++) {
-        password += availableChars[Math.floor(Math.random() * availableChars.length)];
-    }
-
-    return password;
-}
-
-app.post("/generate-password", (req, res) => {
-    const password = generatePassword(req.body);
+    const password = generatePassword({ ...options, length });
     res.json({ password });
 });
 
+function generatePassword(options) {
+    let chars = "";
+    if (options.lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
+    if (options.uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (options.numbers) chars += "0123456789";
+    if (options.symbols) chars += "!@#$%^&*()-_=+[]{}|;:,.<>?";
+
+    if (options.noSimilar) chars = chars.replace(/[oO0l1]/g, "");
+    if (options.easyType) chars = chars.replace(/[!@#$%^&*()]/g, "");
+
+    if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
+
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        password += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    res.json({ password: password.trim() });
+});
+
+// Pornim serverul
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`✅ Server running on port ${PORT}`);
 });

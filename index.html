@@ -4,36 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeKeys - Generator de Parole</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">🔑 SafeKeys</div>
-            <ul>
-                <li><a href="#">Acasă</a></li>
-                <li><a href="#">Despre</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-key"></i> SafeKeys</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Despre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-center">
+        <h1>Generează parole sigure și unice</h1>
+        <p>Protejează-ți conturile cu parole puternice generate aleatoriu!</p>
     </header>
 
-    <section class="hero">
-        <h1>Generator de Parole Sigur</h1>
-        <p>Creează parole sigure și unice rapid!</p>
+    <!-- Password Generator Section -->
+    <section class="container text-center mt-5">
+        <h2><i class="fa-solid fa-lock"></i> Generator de Parole</h2>
+        <div class="options">
+            <label for="length">Lungime:</label>
+            <input type="number" id="length" min="6" max="25" value="12">
+            
+            <label><input type="checkbox" id="uppercase" checked> Litere mari</label>
+            <label><input type="checkbox" id="numbers" checked> Cifre</label>
+            <label><input type="checkbox" id="symbols" checked> Simboluri</label>
+        </div>
+        <button id="generate" class="btn btn-primary mt-3">🔒 Generează Parola</button>
+        <div class="password-box mt-3">
+            <input type="text" id="password" readonly>
+            <button id="copy" class="btn btn-success"><i class="fa-solid fa-copy"></i></button>
+        </div>
     </section>
 
-    <section class="generator">
-        <h2>Generează o Parolă</h2>
-        <button id="generate">🔒 Generează</button>
-        <div id="password">Parola ta va apărea aici</div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 SafeKeys. Toate drepturile rezervate.</p>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        &copy; 2024 SafeKeys. Toate drepturile rezervate.
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

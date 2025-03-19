@@ -1,4 +1,4 @@
-const backendURL = "https://safekeys-backend.onrender.com"; // Backend-ul live de pe Render
+const backendURL = "https://safekeys-backend.onrender.com"; // Backend-ul live
 
 document.getElementById("generate").addEventListener("click", async function() {
     const length = document.getElementById("length").value;
@@ -6,12 +6,16 @@ document.getElementById("generate").addEventListener("click", async function() {
     const lowercase = document.getElementById("lowercase").checked;
     const numbers = document.getElementById("numbers").checked;
     const symbols = document.getElementById("symbols").checked;
+    const noSimilar = document.getElementById("no-similar").checked;
+    const spaces = document.getElementById("spaces").checked;
+    const readable = document.getElementById("readable").checked;
+    const easyType = document.getElementById("easy-type").checked;
 
     try {
         const response = await fetch(`${backendURL}/generate-password`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols })
+            body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols, noSimilar, spaces, readable, easyType })
         });
 
         if (!response.ok) {

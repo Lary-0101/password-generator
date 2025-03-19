@@ -52,6 +52,44 @@
     </div>
   </div>
 </section>
+<!-- Generator Parolă -->
+<section id="generator" class="section text-center" style="background-color: #f9f9f9; padding: 80px 0;">
+  <div class="container">
+    <h2 class="fw-bold" style="color: #111;">Generator Parolă</h2>
+    
+    <!-- Formular pentru opțiuni -->
+    <form id="password-options-form">
+      <div class="form-group">
+        <label for="length">Lungimea parolei:</label>
+        <input type="number" id="length" value="12" class="form-control" style="width: 100px; display: inline-block;">
+      </div>
+
+      <div class="form-group">
+        <label><input type="checkbox" id="uppercase" checked> Litere mari</label><br>
+        <label><input type="checkbox" id="lowercase" checked> Litere mici</label><br>
+        <label><input type="checkbox" id="numbers" checked> Cifre</label><br>
+        <label><input type="checkbox" id="symbols" checked> Simboluri</label><br>
+        <label><input type="checkbox" id="avoid-similar"> Evită caracterele similare</label><br>
+        <label><input type="checkbox" id="easy-read"> Ușor de citit</label><br>
+        <label><input type="checkbox" id="easy-type"> Ușor de tastat</label><br>
+      </div>
+
+      <button type="button" class="btn-modern" onclick="generatePassword()">Generează Parola</button>
+    </form>
+    
+    <!-- Afișarea parolei generate -->
+    <div class="mt-4">
+      <label for="password" class="form-label">Parola generată:</label>
+      <input type="text" id="password" class="form-control" readonly style="font-size: 18px; width: 100%; max-width: 400px; margin: 20px auto;">
+    </div>
+    
+    <!-- Buton de copiere -->
+    <button id="copy-btn" class="btn-modern" onclick="copyPassword()" style="display: none;">Copiază Parola</button>
+    
+    <!-- Mesaj de succes -->
+    <div id="message" style="display: none; color: green; margin-top: 10px;">Parola a fost copiată!</div>
+  </div>
+</section>
 
 <!-- BLOG -->
 <section id="blog" class="section text-center" style="background-color: #fdf6f0; padding: 80px 0;">

@@ -11,7 +11,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fa-solid fa-key"></i> SafeKeys</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -19,16 +19,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Acasă</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Despre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Despre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#secure-passwords">Parole Puternice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero text-center">
+    <header id="home" class="hero text-center">
         <h1>Generează parole sigure și unice</h1>
         <p>Protejează-ți conturile cu parole puternice generate aleatoriu!</p>
     </header>
@@ -50,6 +52,31 @@
             <input type="text" id="password" readonly>
             <button id="copy" class="btn btn-success"><i class="fa-solid fa-copy"></i></button>
         </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container mt-5">
+        <h2>Întrebări Frecvente</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                        Ce este o parolă puternică?
+                    </button>
+                </h2>
+                <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        O parolă puternică are cel puțin 12 caractere, include litere mari/mici, cifre și simboluri speciale.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mt-5 text-center">
+        <h2>Contact</h2>
+        <p>Pentru întrebări, ne poți contacta la <b>safekeys@support.com</b></p>
     </section>
 
     <!-- Footer -->

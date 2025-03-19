@@ -1,4 +1,4 @@
-const backendURL = "https://safekeys-backend.onrender.com"; // Pune URL-ul backend-ului tău
+const backendURL = "https://safekeys-backend.onrender.com"; // Backend-ul live de pe Render
 
 document.getElementById("generate").addEventListener("click", async function() {
     const length = document.getElementById("length").value;
@@ -7,12 +7,33 @@ document.getElementById("generate").addEventListener("click", async function() {
     const numbers = document.getElementById("numbers").checked;
     const symbols = document.getElementById("symbols").checked;
 
-    const response = await fetch(`${backendURL}/generate-password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols })
-    });
+    try {
+        const response = await fetch(`${backendURL}/generate-password`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols })
+        });
 
-    const data = await response.json();
-    document.getElementById("password").value = data.password;
+        if (!response.ok) {
+            throw new Error("Eroare la generarea parolei");
+        }
+
+        const data = await response.json();
+        document.getElementById("password").value = data.password;
+    } catch (error) {
+        console.error("Eroare:", error);
+        alert("A apărut o problemă. Verifică conexiunea!");
+    }
+});
+
+// Funcție pentru copierea parolei
+document.getElementById("copy").addEventListener("click", function() {
+    let passwordField = document.getElementById("password");
+    if (passwordField.value !== "") {
+        passwordField.select();
+        document.execCommand("copy");
+        alert("Parola copiată!");
+    } else {
+        alert("Nu există nicio parolă de copiat!");
+    }
 });

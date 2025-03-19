@@ -8,6 +8,8 @@ body {
 
 .hero {
     padding: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
 }
 
 .options {
@@ -34,8 +36,4 @@ body {
     font-weight: bold;
     background: white;
     color: black;
-}
-
-#copy {
-    font-size: 18px;
 }

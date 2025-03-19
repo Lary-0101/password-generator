@@ -1,6 +1,6 @@
 const backendURL = "https://safekeys-backend.onrender.com"; // Backend-ul live
 
-document.getElementById("generate").addEventListener("click", async function() {
+document.getElementById("generate").addEventListener("click", async function () {
     const length = document.getElementById("length").value;
     const uppercase = document.getElementById("uppercase").checked;
     const lowercase = document.getElementById("lowercase").checked;
@@ -31,7 +31,7 @@ document.getElementById("generate").addEventListener("click", async function() {
 });
 
 // Funcție pentru copierea parolei
-document.getElementById("copy").addEventListener("click", function() {
+document.getElementById("copy").addEventListener("click", function () {
     let passwordField = document.getElementById("password");
     if (passwordField.value !== "") {
         passwordField.select();

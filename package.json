@@ -1,0 +1,13 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "Backend pentru SafeKeys",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

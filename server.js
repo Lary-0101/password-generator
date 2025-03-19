@@ -23,7 +23,7 @@ app.get("/generate-password", (req, res) => {
     };
 
     const password = generatePassword({ ...options, length });
-    res.json({ password });
+    res.json({ password: password.trim() }); // Doar acest res.json trebuie să existe!
 });
 
 function generatePassword(options) {
@@ -39,12 +39,12 @@ function generatePassword(options) {
     if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
 
     let password = "";
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < options.length; i++) {
         password += chars[Math.floor(Math.random() * chars.length)];
     }
 
-    res.json({ password: password.trim() });
-});
+    return password.trim(); // returnezi direct parola aici
+}
 
 // Pornim serverul
 const PORT = process.env.PORT || 3000;

@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('assets/background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
 .hero {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 50px 20px;
+    padding: 50px;
 }
 
 .options {
@@ -32,6 +32,8 @@ body {
     border: 2px solid #0073e6;
     border-radius: 5px;
     font-weight: bold;
+    background: white;
+    color: black;
 }
 
 #copy {

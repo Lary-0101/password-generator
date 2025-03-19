@@ -1,4 +1,4 @@
-const backendURL = "https://safekeys-backend.onrender.com"; // Backend-ul live
+const backendURL = "https://safekeys-backend.onrender.com"; // Asigură-te că acesta e corect!
 
 document.getElementById("generate").addEventListener("click", async function () {
     const length = document.getElementById("length").value;
@@ -14,7 +14,7 @@ document.getElementById("generate").addEventListener("click", async function () 
     try {
         console.log("🔄 Trimit cererea către backend...");
 
-        const response = await fetch(`${backendURL}/generate-password`, {
+        const response = await fetch(`${backendURL}/generate-password`, {  // Trebuie să fie `/generate-password`
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols, noSimilar, spaces, readable, easyType })

@@ -5,9 +5,27 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// ✅ Verificare dacă backend-ul funcționează
+// ✅ Verificare backend activ
 app.get("/", (req, res) => {
     res.send("✅ Backend-ul SafeKeys funcționează!");
+});
+
+// ✅ Generare parolă
+app.get("/generate-password", (req, res) => {
+    const length = 12; // Setăm o lungime default de 12 caractere
+    const options = {
+        lowercase: true,
+        uppercase: true,
+        numbers: true,
+        symbols: true,
+        noSimilar: false,
+        spaces: false,
+        readable: false,
+        easyType: false
+    };
+
+    const password = generatePassword({ ...options, length });
+    res.json({ password });
 });
 
 function generatePassword(options) {
@@ -23,37 +41,14 @@ function generatePassword(options) {
     if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
 
     let password = "";
-    let usedChars = new Set(); // Evităm repetarea caracterelor identice
-
     for (let i = 0; i < options.length; i++) {
-        let char;
-        do {
-            char = chars[Math.floor(Math.random() * chars.length)];
-        } while (usedChars.has(char)); // Asigurăm diversitatea caracterelor
-
-        usedChars.add(char);
-        password += char;
-
-        if (options.spaces && i % 5 === 4 && i !== options.length - 1) password += " ";
+        password += chars[Math.floor(Math.random() * chars.length)];
     }
 
-    return password.trim(); // Eliminăm spațiul de la final, dacă există
+    return password.trim();
 }
 
-app.post("/generate-password", (req, res) => {
-    let { length } = req.body;
-
-    // ✅ Verificăm dacă `length` este un număr valid
-    length = parseInt(length, 10);
-    if (isNaN(length) || length < 6 || length > 25) {
-        return res.status(400).json({ error: "⚠️ Lungimea parolei trebuie să fie între 6 și 25 de caractere!" });
-    }
-
-    const password = generatePassword({ ...req.body, length });
-    res.json({ password });
-});
-
-// ✅ Portul pe care rulează serverul
+// ✅ Pornim serverul
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);

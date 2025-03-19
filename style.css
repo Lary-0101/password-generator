@@ -1,53 +1,79 @@
+/* Fundal general */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
+  background-color: #f5f5f7;
+  color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1c2b40;
+  padding: 15px 20px;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f5f5f7;
+}
+
+/* HOME - Fundal nou */
+.hero {
+  background: linear-gradient(135deg, #0074cc, #f5f5f7);
+  color: #ffffff;
+  text-align: center;
+  padding: 140px 20px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
-.generator {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  text-align: left;
+/* Titlu SafeKeys */
+.hero-title {
+  font-size: 64px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 
-input[type="number"], input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+/* Citat sub titlu */
+.hero-quote {
+  font-size: 22px;
+  font-style: italic;
+  color: #004a99;
 }
 
-button {
-  background-color: #4CAF50;
+/* Buton principal îmbunătățit */
+.btn-modern {
+  background-color: #005fa3;
   color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 15px;
-  width: 100%;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 116, 204, 0.3);
 }
 
-button:hover {
-  background-color: #45a049;
+.btn-modern:hover {
+  background-color: #004a99;
+  transform: scale(1.1);
 }
 
-label {
-  display: block;
-  margin-top: 10px;
+/* Despre, Blog, FAQ, Contact, Footer - Stiluri generale */
+.section {
+  background-color: #ffffff;
+  color: #2c3e50;
+  padding: 80px 0;
 }
 
-#message {
-  margin-top: 10px;
-  color: #4CAF50;
-  display: none;
+/* Footer */
+.footer {
+  background: #162a4f;
+  color: #ffffff;
+  padding: 20px 0;
 }

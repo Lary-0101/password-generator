@@ -1,52 +1,55 @@
-const backendURL = "https://safekeys-backend.onrender.com"; 
+const backendURL = "https://safekeys-backend.onrender.com"; // Asigură-te că acesta e corect!
 
-document.getElementById("generate").addEventListener("click", async function () {
-    const length = parseInt(document.getElementById("length").value, 10);
-    const uppercase = document.getElementById("uppercase").checked;
-    const lowercase = document.getElementById("lowercase").checked;
-    const numbers = document.getElementById("numbers").checked;
-    const symbols = document.getElementById("symbols").checked;
-    const noSimilar = document.getElementById("no-similar").checked;
-    const spaces = document.getElementById("spaces").checked;
-    const readable = document.getElementById("readable").checked;
-    const easyType = document.getElementById("easy-type").checked;
+document.getElementById("generate").addEventListener("click", function () {
+    generatePassword();
+});
 
-    // Verificăm dacă lungimea este validă
-    if (isNaN(length) || length < 6 || length > 25) {
-        alert("⚠️ Lungimea parolei trebuie să fie între 6 și 25 de caractere!");
+document.getElementById("copy").addEventListener("click", function () {
+    copyPassword();
+});
+
+function generatePassword() {
+    const length = parseInt(document.getElementById("length").value);
+    let charset = "";
+
+    if (document.getElementById("lowercase").checked) charset += "abcdefghijklmnopqrstuvwxyz";
+    if (document.getElementById("uppercase").checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (document.getElementById("numbers").checked) charset += "0123456789";
+    if (document.getElementById("symbols").checked) charset += "!@#$%^&*()_+-=[]{}|;:',.<>?/";
+
+    // Evităm caracterele similare
+    if (document.getElementById("no-similar").checked) {
+        charset = charset.replace(/[oO0l1]/g, "");
+    }
+
+    // Dacă nu e selectată nicio opțiune
+    if (charset === "") {
+        alert("⚠️ Selectează cel puțin un tip de caractere!");
         return;
     }
 
-    try {
-        console.log("🔄 Trimit cererea către backend...");
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        password += charset.charAt(Math.floor(Math.random() * charset.length));
 
-        const response = await fetch(`${backendURL}/generate-password`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ length, uppercase, lowercase, numbers, symbols, noSimilar, spaces, readable, easyType })
-        });
-
-        if (!response.ok) {
-            throw new Error(`Eroare server: ${response.status}`);
+        // Adăugăm spații la fiecare 5 caractere dacă este bifată opțiunea
+        if (document.getElementById("spaces").checked && (i + 1) % 5 === 0 && i !== length - 1) {
+            password += " ";
         }
-
-        const data = await response.json();
-        document.getElementById("password").value = data.password;
-        console.log("✅ Parolă generată:", data.password);
-    } catch (error) {
-        console.error("❌ Eroare la generarea parolei:", error);
-        alert("A apărut o problemă. Verifică conexiunea la server!");
     }
-});
+
+    document.getElementById("password").value = password.trim(); // Eliminăm spațiul final, dacă există
+}
 
 // Funcție pentru copierea parolei
-document.getElementById("copy").addEventListener("click", function () {
+function copyPassword() {
     let passwordField = document.getElementById("password");
+
     if (passwordField.value !== "") {
-        passwordField.select();
-        document.execCommand("copy");
-        alert("📋 Parola copiată!");
+        navigator.clipboard.writeText(passwordField.value)
+            .then(() => alert("📋 Parola copiată în clipboard!"))
+            .catch((error) => console.error("❌ Eroare la copiere:", error));
     } else {
         alert("⚠️ Nu există nicio parolă de copiat!");
     }
-});
+}

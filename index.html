@@ -4,282 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SafeKeys - Protejează-ți Datele!</title>
-  
-  <!-- Bootstrap + FontAwesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <!-- Stil extern -->
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* GENERAL */
-    body {
-      background-color: #f4f7f6;
-      color: #2c3e50;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      background: linear-gradient(135deg, #3498db, #2ecc71); /* Gradient din albastru și verde */
-      padding: 15px 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .navbar-brand,
-    .navbar-nav .nav-link {
-      color: #ffffff;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .navbar-nav .nav-link:hover {
-      color: #ecf0f1; /* Alb deschis */
-    }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(to right, #1e3a5f, #2a4d77); /* Gradient albastru */
-      color: white;
-      text-align: center;
-      padding: 140px 20px;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .hero-title {
-      font-size: 4.5rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-
-    .hero-quote {
-      font-size: 1.6rem;
-      font-style: italic;
-      color: #a6d1f2;
-      margin-top: 20px;
-    }
-
-    .btn-modern {
-      background-color: #16a085; /* Verde vibrant */
-      color: white;
-      font-size: 1.2rem;
-      padding: 15px 40px;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: background-color 0.3s ease, transform 0.3s;
-      margin-top: 30px;
-    }
-
-    .btn-modern:hover {
-      background-color: #1abc9c; /* Verde deschis */
-      transform: translateY(-5px);
-    }
-
-    .navbar-toggler-icon {
-      background-color: #fff;
-    }
-
-    /* Optional: Customize more sections */
-    /* SECTION */
-    .section {
-      background-color: #ffffff;
-      padding: 80px 0;
-    }
-  </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" id="page-top">
 
-<nav class="navbar navbar-expand-lg glass-navbar fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">SafeKeys</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container px-4">
+    <a class="navbar-brand" href="#page-top">SafeKeys</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home me-1"></i> Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#generator"><i class="fas fa-key me-1"></i> Generator</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle me-1"></i> Despre</a></li>
-        <li class="nav-item"><a class="nav-link" href="#blog"><i class="fas fa-blog me-1"></i> Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faq"><i class="fas fa-question-circle me-1"></i> FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i> Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#generator">Generator</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">Despre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-
-<!-- HERO -->
-<header id="home" class="hero hero-modern">
-  <div class="hero-overlay">
-    <div class="hero-content text-center">
-      <h1 class="hero-title">🔐 SafeKeys</h1>
-      <p class="hero-subtext">Soluția ta pentru parole puternice și siguranță digitală.</p>
-      <a href="#generator" class="btn-modern"><i class="fas fa-lock"></i> Generează Parola</a>
-    </div>
+<header class="hero" id="home">
+  <div class="container text-center">
+    <h1 class="fw-bold text-white">🔐 SafeKeys</h1>
+    <p class="lead text-light">Soluția ta pentru parole puternice și siguranță digitală.</p>
+    <a class="btn btn-success btn-lg mt-4" href="#generator">Generează Parola</a>
   </div>
 </header>
 
-
-
-
-</body>
-</html>
-
-
-
-
-<!-- GENERATOR -->
-<section id="generator" class="section">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-4">Generează o parolă sigură</h2>
+<section id="generator" class="section text-center">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-4"><i class="fas fa-key me-2"></i>Generează o parolă sigură</h2>
     <div class="row justify-content-center">
       <div class="col-md-6 text-start">
-        <label class="form-label">Lungime parolă (max. 25):</label>
         <input type="number" id="length" class="form-control mb-3" value="12" min="4" max="25" />
-
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="uppercase" checked /><label class="form-check-label" for="uppercase">Litere mari</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="lowercase" checked /><label class="form-check-label" for="lowercase">Litere mici</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="numbers" checked /><label class="form-check-label" for="numbers">Cifre</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="symbols" checked /><label class="form-check-label" for="symbols">Simboluri</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="avoid-similar" /><label class="form-check-label" for="avoid-similar">Evită caractere similare (O, 0, l, 1)</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="easy-read" /><label class="form-check-label" for="easy-read">Parolă ușor de citit</label></div>
-        <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="easy-type" /><label class="form-check-label" for="easy-type">Fără caractere greu de tastat (!, @, etc.)</label></div>
-
-        <button onclick="generatePassword()" class="btn btn-primary">Generează</button>
-
-        <div class="mt-4">
-          <label class="form-label">Parola generată:</label>
-          <input type="text" id="password" class="form-control" readonly />
-          <button id="copy-btn" class="btn btn-success mt-2" onclick="copyPassword()">Copiază</button>
-          <div id="message" class="text-success mt-2">✅ Copiat!</div>
-        </div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="uppercase" checked><label class="form-check-label">Litere mari</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="lowercase" checked><label class="form-check-label">Litere mici</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="numbers" checked><label class="form-check-label">Cifre</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="symbols" checked><label class="form-check-label">Simboluri</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="avoid-similar"><label class="form-check-label">Evită caractere similare</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="easy-read"><label class="form-check-label">Parolă ușor de citit</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="easy-type"><label class="form-check-label">Fără caractere greu de tastat</label></div>
+        <button onclick="generatePassword()" class="btn btn-primary mt-3">Generează</button>
+        <input type="text" id="password" class="form-control mt-3" readonly />
+        <button id="copy-btn" class="btn btn-success mt-2" onclick="copyPassword()">Copiază</button>
+        <div id="message" class="text-success mt-2">✅ Copiat!</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DESPRE -->
-<section id="about" class="about-section">
+<section id="about" class="section about-section text-center" data-aos="fade-up">
   <div class="container">
-    <h2 class="section-title">Despre SafeKeys</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>SafeKeys este un generator modern de parole, creat pentru a oferi utilizatorilor parole puternice și sigure, care protejează datele sensibile și previn accesul neautorizat la conturi online. Indiferent dacă utilizezi SafeKeys pentru a-ți proteja conturile bancare, rețelele sociale sau conturile de e-mail, platforma noastră îți garantează un nivel ridicat de securitate.</p>
-        <p>Misiunea noastră este să oferim o soluție simplă și eficientă pentru securizarea conturilor online. Într-o eră în care atacurile cibernetice sunt tot mai frecvente, utilizarea unei parole puternice este una dintre cele mai importante măsuri de protecție. SafeKeys este conceput să creeze parole unice, greu de ghicit și imposibil de spart prin metodele convenționale.</p>
-        <p>În plus, platforma noastră nu stochează parolele tale și îți oferă control complet asupra securității conturilor tale. Tot ce trebuie să faci este să alegi setările dorite și SafeKeys va genera instant parole sigure. Ne angajăm să menținem cele mai înalte standarde de securitate pentru a proteja confidențialitatea ta.</p>
-        <p>Folosind SafeKeys, nu doar că îți protejezi conturile, dar îți simplifici și procesul de gestionare a parolelor, reducând riscul de a folosi parole slabe sau de a le uita. În plus, îți oferim recomandări pentru autentificarea în doi pași și alte practici de securitate pentru o protecție suplimentară.</p>
-      </div>
-      <div class="about-gif">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHlvdjR1NXA4NWx5aHJxM3ZkMXhvZG5raXBxZGUzZTByeDVvbjFzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gHPOb1fEVWu5GHL2tk/giphy.gif" alt="GIF securitate" class="gif" />
-      </div>
-    </div>
+    <h2 class="mb-4"><i class="fas fa-info-circle me-2"></i>Despre SafeKeys</h2>
+    <img src="https://github.com/Lary-0101/password-generator/blob/main/images/philipp-katzenberger-iIJrUoeRoCQ-unsplash.jpg?raw=true" class="img-fluid rounded shadow" alt="Despre">
   </div>
 </section>
 
-
-<!-- BLOG -->
-<section id="blog" class="section text-center">
+<section id="blog" class="section text-white text-center blog-section" data-aos="zoom-in-up">
   <div class="container">
-    <h2 class="fw-bold" style="color: #111;">Ce face o parolă sigură?</h2>
-    <div class="row mt-4">
-      <!-- Card 1 -->
-      <div class="col-md-4">
-        <div class="card p-4 shadow-sm">
-          <div class="text-center"><img src="https://cdn-icons-png.flaticon.com/128/681/681494.png" alt="Lungime" width="60" /></div>
-          <h4 class="mt-3 fw-bold">Lungimea</h4>
-          <p>Cu cât o parolă este mai lungă, cu atât devine mai greu de spart. De obicei, parolele mai scurte (sub 8 caractere) pot fi sparte mult mai repede folosind atacuri automate de tip "brute force". În schimb, o parolă lungă (cel puțin 12 caractere) oferă o protecție mult mai mare. Parolele lungi permit includerea unui număr mai mare de combinații posibile, ceea ce face mult mai dificilă descoperirea acestora de către un atacator.</p>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="card p-4 shadow-sm">
-          <div class="text-center"><img src="https://cdn-icons-png.flaticon.com/128/482/482991.png" alt="Complexitate" width="60" /></div>
-          <h4 class="mt-3 fw-bold">Complexitatea</h4>
-          <p>O parolă sigură trebuie să fie complexă, adică să conțină o combinație diversă de caractere. Folosirea de litere mari și mici, cifre (0-9) și simboluri speciale (ex: @, #, $, %, &) face ca parola să fie mult mai greu de ghicit sau spart. Această complexitate creează un număr mult mai mare de posibile combinații, ceea ce face atacurile de tip "brute force" mult mai dificile și mai lente. Astfel, complexitatea sporește semnificativ securitatea parolei tale.
-
-</p>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col-md-4">
-        <div class="card p-4 shadow-sm">
-          <div class="text-center"><img src="https://cdn-icons-png.flaticon.com/128/3524/3524659.png" alt="Unică" width="60" /></div>
-          <h4 class="mt-3 fw-bold">Unică</h4>
-          <p>Este esențial ca fiecare parolă pe care o folosești să fie unică pentru fiecare cont sau aplicație. Folosirea aceleași parole pe mai multe site-uri sau aplicații poate duce la un risc major de securitate. Dacă un atacator reușește să spargă parola unui cont, accesul la alte conturi va fi mult mai ușor, mai ales dacă ai folosit aceeași parolă. O parolă unică pentru fiecare cont reduce riscul de a-ți compromite datele personale sau financiare în cazul unui atac cibernetic.</p>
-        </div>
-      </div>
+    <h2 class="mb-4"><i class="fas fa-blog me-2"></i>Ce face o parolă sigură?</h2>
+    <div class="row">
+      <div class="col-md-4"><p><i class="fas fa-ruler-horizontal me-2"></i>Lungime, complexitate, unicitate...</p></div>
+      <div class="col-md-4"><p><i class="fas fa-random me-2"></i>Folosește caractere speciale!</p></div>
+      <div class="col-md-4"><p><i class="fas fa-user-shield me-2"></i>Fiecare cont are nevoie de o parolă unică!</p></div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="section">
+<section id="faq" class="section text-center" data-aos="fade-up">
   <div class="container">
-    <h2 class="fw-bold text-center">Întrebări Frecvente</h2>
-    <div class="faq-item">
-      <h4 class="faq-question">🔹 Cum funcționează SafeKeys?</h4>
-      <p class="faq-answer">SafeKeys folosește un generator avansat de parole care creează parole unice, greu de ghicit, folosind combinații de litere mari și mici, cifre și caractere speciale. Aceste parole sunt generate aleatoriu pentru a maximiza securitatea conturilor tale online, protejându-te astfel de posibile atacuri cibernetice. Parolele sunt criptate în tranzit și nu sunt stocate pe serverele noastre, asigurându-se că sunt accesibile doar de către tine.</p>
-    </div>
-    <div class="faq-item">
-      <h4 class="faq-question">🔹 De ce este important să folosesc parole puternice?</h4>
-      <p class="faq-answer">Parolele puternice sunt esențiale pentru protejarea informațiilor tale personale și a conturilor online. O parolă puternică reduce semnificativ riscul de acces neautorizat, prevenind atacurile de tip "brute force" și alte tehnici folosite de hackeri pentru a sparge parolele slabe. Acestea sunt, de obicei, greu de ghicit și de spart, ceea ce face ca datele tale să fie mult mai sigure.</p>
-    </div>
-    <div class="faq-item">
-      <h4 class="faq-question">🔹 Pot salva parolele în SafeKeys?</h4>
-      <p class="faq-answer">Nu, SafeKeys nu salvează parolele tale în bazele de date. Parolele sunt generate temporar și folosite doar pe durata sesiuni tale. Astfel, putem să îți oferim un nivel ridicat de securitate și confidențialitate, fără a risca expunerea datelor tale personale. Acest sistem îți permite să creezi parole puternice fără teama de a le uita.</p>
-    </div>
-    <div class="faq-item">
-      <h4 class="faq-question">🔹 Care este lungimea minimă recomandată pentru o parolă?</h4>
-      <p class="faq-answer">Recomandăm ca parola ta să aibă cel puțin 12 caractere. O parolă mai lungă este mult mai greu de spart și poate rezista mult mai bine atacurilor automatizate. În plus, parolele mai lungi permit includerea unui amestec de caractere, ceea ce crește securitatea acestora. O parolă puternică ar trebui să conțină litere mari și mici, cifre și simboluri speciale pentru a spori complexitatea.</p>
-    </div>
-    <div class="faq-item">
-      <h4 class="faq-question">🔹 Cum pot să mă protejez de atacurile de tip phishing?</h4>
-      <p class="faq-answer">Pentru a te proteja de atacurile de tip phishing, este important să fii vigilent la e-mailurile sau mesajele nesolicitate care solicită informații confidențiale, precum parole sau detalii bancare. Verifică întotdeauna URL-ul site-urilor pe care le vizitezi pentru a te asigura că sunt autentice și că sunt criptate. În plus, folosește autentificarea în doi pași pentru a adăuga un strat suplimentar de protecție.</p>
-    </div>
-    <div class="faq-item">
-      <h4 class="faq-question">🔹 Ce înseamnă autentificarea în doi pași?</h4>
-      <p class="faq-answer">Autentificarea în doi pași (2FA) este un proces de securitate care necesită două forme de identificare pentru a accesa un cont. De obicei, primul pas este introducerea parolei, iar al doilea este un cod trimis pe telefonul mobil sau generat de o aplicație de autentificare. Acest lucru face mult mai greu pentru un hacker să acceseze contul tău, chiar dacă a obținut parola.</p>
-    </div>
+    <h2 class="mb-4"><i class="fas fa-question-circle me-2"></i>Întrebări frecvente</h2>
+    <p>De ce să folosești parole sigure? Ce este autentificarea 2FA?...</p>
   </div>
 </section>
 
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="container text-center">
-    <h2 class="contact-title">Contacte</h2>
-    <p class="contact-info"><i class="fas fa-envelope"></i> <strong>safekeys@gmail.com</strong></p>
-    <p class="contact-info"><i class="fas fa-phone-alt"></i> <strong>+44 7572 983 609</strong></p>
+<section id="contact" class="section text-center bg-dark text-white" data-aos="fade-up">
+  <div class="container">
+    <h2 class="mb-4"><i class="fas fa-envelope me-2"></i>Contacte</h2>
+    <p><i class="fas fa-at me-2"></i>safekeys@gmail.com</p>
+    <p><i class="fas fa-phone-alt me-2"></i>+44 7572 983 609</p>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container text-center">
-    <p>© 2025 SafeKeys. All rights reserved.</p>
-  </div>
-</footer>
-
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // FAQ interactiv
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener("click", function () {
-      document.querySelectorAll('.faq-item').forEach(i => {
-        if (i !== item) i.classList.remove("active");
-      });
-      this.classList.toggle("active");
-    });
-  });
+  AOS.init({ duration: 1000, once: true });
 </script>
 </body>
 </html>

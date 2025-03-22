@@ -47,27 +47,50 @@
 
 
 
-<section id="generator" class="section text-center">
-  <div class="container" data-aos="fade-up">
-    <h2 class="mb-4"><i class="fas fa-key me-2"></i>Generează o parolă sigură</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-start">
-        <input type="number" id="length" class="form-control mb-3" value="12" min="4" max="25" />
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="uppercase" checked><label class="form-check-label">Litere mari</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="lowercase" checked><label class="form-check-label">Litere mici</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="numbers" checked><label class="form-check-label">Cifre</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="symbols" checked><label class="form-check-label">Simboluri</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="avoid-similar"><label class="form-check-label">Evită caractere similare</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="easy-read"><label class="form-check-label">Parolă ușor de citit</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" id="easy-type"><label class="form-check-label">Fără caractere greu de tastat</label></div>
-        <button onclick="generatePassword()" class="btn btn-primary mt-3">Generează</button>
-        <input type="text" id="password" class="form-control mt-3" readonly />
-        <button id="copy-btn" class="btn btn-success mt-2" onclick="copyPassword()">Copiază</button>
-        <div id="message" class="text-success mt-2">✅ Copiat!</div>
+<section id="generator" class="section-generator">
+  <div class="overlay"></div>
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="generator-card p-5 rounded shadow">
+      <h2 class="text-center text-white mb-4">Generează o parolă sigură</h2>
+      <input type="number" id="length" class="form-control mb-3" value="12" min="4" max="25" />
+      
+      <div class="form-check text-white">
+        <input class="form-check-input" type="checkbox" id="uppercase" checked>
+        <label class="form-check-label">Litere mari</label>
       </div>
+      <div class="form-check text-white">
+        <input class="form-check-input" type="checkbox" id="lowercase" checked>
+        <label class="form-check-label">Litere mici</label>
+      </div>
+      <div class="form-check text-white">
+        <input class="form-check-input" type="checkbox" id="numbers" checked>
+        <label class="form-check-label">Cifre</label>
+      </div>
+      <div class="form-check text-white">
+        <input class="form-check-input" type="checkbox" id="symbols" checked>
+        <label class="form-check-label">Simboluri</label>
+      </div>
+      <div class="form-check text-white">
+        <input class="form-check-input" type="checkbox" id="avoid-similar">
+        <label class="form-check-label">Evită caractere similare</label>
+      </div>
+      <div class="form-check text-white">
+        <input class="form-check-input" type="checkbox" id="easy-read">
+        <label class="form-check-label">Parolă ușor de citit</label>
+      </div>
+      <div class="form-check text-white mb-4">
+        <input class="form-check-input" type="checkbox" id="easy-type">
+        <label class="form-check-label">Fără caractere greu de tastat</label>
+      </div>
+
+      <button onclick="generatePassword()" class="btn btn-outline-light btn-xl w-100 mb-3">Generează</button>
+      <input type="text" id="password" class="form-control mb-2" readonly />
+      <button id="copy-btn" class="btn btn-success w-100" onclick="copyPassword()">Copiază</button>
+      <div id="message" class="text-success text-center mt-2">✅ Copiat!</div>
     </div>
   </div>
 </section>
+
 
 <section id="about" class="section about-section text-center" data-aos="fade-up">
   <div class="container">

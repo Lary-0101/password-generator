@@ -10,16 +10,42 @@ body {
   background-color: #000;
 }
 
-.hero {
+.hero-section {
+  position: relative;
   background: url('https://github.com/Lary-0101/password-generator/blob/main/images/adi-goldstein-EUsVwEOsblE-unsplash.jpg?raw=true') no-repeat center center/cover;
-  padding: 160px 0;
-  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.section {
-  padding: 100px 0;
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1;
 }
+
+.hero-section .container {
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 5rem;
+  letter-spacing: 5px;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+}
+
+.hero-section .btn {
+  font-size: 1.1rem;
+  padding: 14px 32px;
+}
+
 
 #generator {
   background: url('https://github.com/Lary-0101/password-generator/blob/main/images/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg?raw=true') no-repeat center center/cover;

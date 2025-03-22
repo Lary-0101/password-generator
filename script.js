@@ -1,5 +1,5 @@
 function generatePassword() {
-  const length = parseInt(document.getElementById('length').value, 10);
+  const length = parseInt(document.getElementById('length').value);
   const uppercase = document.getElementById('uppercase').checked;
   const lowercase = document.getElementById('lowercase').checked;
   const numbers = document.getElementById('numbers').checked;

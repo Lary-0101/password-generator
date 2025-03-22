@@ -88,13 +88,21 @@ body {
 }
 
 
-.about-section img {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+.section-about {
+  padding: 100px 0;
+  background-color: #f8f9fa;
 }
+
+.section-about h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.section-about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
 
 .blog-section {
   background: url('https://github.com/Lary-0101/password-generator/blob/main/images/matthew-henry-fPxOowbR6ls-unsplash.jpg?raw=true') no-repeat center center/cover;

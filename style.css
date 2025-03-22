@@ -76,3 +76,29 @@ h2 i {
   font-weight: 600;
   font-size: 1rem;
 }
+#mainNav {
+  background-color: #000;
+  transition: background-color 0.3s ease;
+}
+
+#mainNav .navbar-brand {
+  font-weight: bold;
+  color: #00ffc3;
+  letter-spacing: 1px;
+}
+
+#mainNav .nav-link {
+  color: #ffffff !important;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+#mainNav .nav-link:hover {
+  color: #00ffc3 !important;
+}
+
+#mainNav.navbar-scrolled {
+  background-color: #212529 !important;
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.3);
+}
+

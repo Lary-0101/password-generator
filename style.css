@@ -145,6 +145,27 @@ body {
   font-size: 1.1rem;
 }
 
+.section-contact {
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.section-contact h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.section-contact input,
+.section-contact textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.footer {
+  font-size: 0.9rem;
+  background-color: #212529;
+}
+
 h2 i {
   color: #0dcaf0;
 }

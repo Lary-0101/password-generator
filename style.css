@@ -46,7 +46,6 @@ body {
   padding: 14px 32px;
 }
 
-
 .section-generator {
   position: relative;
   background: url('https://github.com/Lary-0101/password-generator/blob/main/images/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg?raw=true') no-repeat center center/cover;
@@ -56,6 +55,7 @@ body {
   justify-content: center;
   padding: 80px 20px;
 }
+
 .section-generator::after {
   content: "";
   position: absolute;
@@ -86,8 +86,9 @@ body {
 }
 
 .btn-xl {
-  padding: 0.8rem 1.5rem;
-  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
   transition: all 0.3s ease;
 }
 
@@ -96,7 +97,6 @@ body {
   background-color: #0dcaf0;
   color: white;
 }
-
 
 .section-about {
   padding: 100px 0;
@@ -112,7 +112,6 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
 }
-
 
 .section-blog {
   background-color: #ffffff;
@@ -185,6 +184,7 @@ h2 i {
   font-weight: 600;
   font-size: 1rem;
 }
+
 #mainNav {
   background-color: #000;
   transition: background-color 0.3s ease;
@@ -211,13 +211,14 @@ h2 i {
   box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.3);
 }
 
-/* 🔽 La finalul style.css */
+/* 🔽 HOME Section (masthead) */
 .masthead {
   position: relative;
   width: 100%;
   height: 100vh;
   background: url('https://github.com/Lary-0101/password-generator/blob/main/images/adi-goldstein-EUsVwEOsblE-unsplash.jpg?raw=true') no-repeat center center;
   background-size: cover;
+  z-index: 0;
 }
 
 .masthead::before {
@@ -227,6 +228,17 @@ h2 i {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.masthead::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #0f0f0f);
+  z-index: 1;
 }
 
 .masthead .container {
@@ -244,20 +256,4 @@ h2 i {
 .masthead p {
   font-size: 1.25rem;
   color: #f8f9fa;
-}
-
-.btn-xl {
-  padding: 1rem 2rem;
-  font-size: 1.25rem;
-  border-radius: 0.5rem;
-}
-.masthead::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #0f0f0f);
-  z-index: 1;
 }

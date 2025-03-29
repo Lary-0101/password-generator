@@ -257,3 +257,14 @@ h2 i {
   font-size: 1.25rem;
   color: #f8f9fa;
 }
+#stats-panel p,
+#stats-panel ul {
+  font-size: 0.9rem;
+}
+
+#stat-last-passwords li {
+  font-family: monospace;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+

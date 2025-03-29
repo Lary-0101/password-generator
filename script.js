@@ -1,4 +1,6 @@
 function generatePassword() {
+  const start = performance.now();
+
   const length = parseInt(document.getElementById('length').value);
   const options = {
     uppercase: document.getElementById('uppercase').checked,
@@ -15,6 +17,9 @@ function generatePassword() {
   document.getElementById('password').value = password;
   document.getElementById('copy-btn').style.display = "block";
   document.getElementById('message').style.display = "none";
+
+  const end = performance.now();
+  updateStats(password, end - start);
 }
 
 function generateLocalPassword(options) {
@@ -34,14 +39,12 @@ function generateLocalPassword(options) {
 
   if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
 
-  // Elimină duplicate
   chars = [...new Set(chars)].join('');
 
   if (options.length > chars.length) {
     return `⚠️ Poți genera maxim ${chars.length} caractere fără duplicate.`;
   }
 
-  // Generează parolă fără caractere repetate
   let available = chars.split('');
   let password = "";
   for (let i = 0; i < options.length; i++) {
@@ -65,8 +68,50 @@ function copyPassword() {
   document.getElementById('message').style.display = "block";
 }
 
+// 🔽 STATISTICI LOCALE
+function updateStats(password, genTime) {
+  let total = parseInt(localStorage.getItem("totalGenerated") || "0") + 1;
+  localStorage.setItem("totalGenerated", total);
+  document.getElementById("stat-total").textContent = total;
+
+  let timeSum = parseFloat(localStorage.getItem("totalTime") || "0") + genTime;
+  localStorage.setItem("totalTime", timeSum);
+  const avgTime = Math.round(timeSum / total);
+  document.getElementById("stat-time").textContent = avgTime;
+
+  let last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
+  last.unshift(password);
+  if (last.length > 5) last = last.slice(0, 5);
+  sessionStorage.setItem("lastPasswords", JSON.stringify(last));
+
+  const list = document.getElementById("stat-last-passwords");
+  list.innerHTML = "";
+  last.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p;
+    list.appendChild(li);
+  });
+}
+
+function initStats() {
+  document.getElementById("stat-total").textContent = localStorage.getItem("totalGenerated") || "0";
+  const total = parseInt(localStorage.getItem("totalGenerated") || "0");
+  const timeSum = parseFloat(localStorage.getItem("totalTime") || "0");
+  document.getElementById("stat-time").textContent = total > 0 ? Math.round(timeSum / total) : 0;
+
+  const list = document.getElementById("stat-last-passwords");
+  const last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
+  list.innerHTML = "";
+  last.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p;
+    list.appendChild(li);
+  });
+}
+
 window.onload = () => {
   document.getElementById('password').value = '';
   document.getElementById('copy-btn').style.display = "none";
   document.getElementById('message').style.display = "none";
+  initStats();
 };

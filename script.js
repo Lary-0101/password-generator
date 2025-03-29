@@ -1,3 +1,8 @@
+const SAFE_LETTERS_LOWER = "abcdefghijkmnpqrstuvwxyz";
+const SAFE_LETTERS_UPPER = "ABCDEFGHJKMNPQRSTUVWXYZ";
+const SAFE_NUMBERS = "234679";
+const SAFE_SYMBOLS = "!@#";
+
 function generatePassword() {
   const start = performance.now();
 
@@ -24,17 +29,17 @@ function generatePassword() {
 
 function generateLocalPassword(options) {
   let chars = "";
-  if (options.lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
-  if (options.uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  if (options.numbers) chars += "0123456789";
-  if (options.symbols) chars += "!@#$%^&*()-_=+[]{}|;:,.<>?";
 
-  if (options.noSimilar || options.readable) {
-    chars = chars.replace(/[oO0l1]/g, "");
-  }
-
-  if (options.easyType) {
-    chars = chars.replace(/[!@#$%^&*()]/g, "");
+  if (options.readable || options.easyType) {
+    if (options.lowercase) chars += SAFE_LETTERS_LOWER;
+    if (options.uppercase) chars += SAFE_LETTERS_UPPER;
+    if (options.numbers) chars += SAFE_NUMBERS;
+    if (options.symbols && !options.easyType) chars += SAFE_SYMBOLS;
+  } else {
+    if (options.lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
+    if (options.uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (options.numbers) chars += "0123456789";
+    if (options.symbols) chars += "!@#$%^&*()-_=+[]{}|;:,.<>?";
   }
 
   if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
@@ -68,7 +73,7 @@ function copyPassword() {
   document.getElementById('message').style.display = "block";
 }
 
-// 🔽 STATISTICI TEMPORARE (sessionStorage)
+// 🔽 STATISTICI TEMPORARE
 function updateStats(password, genTime) {
   let total = parseInt(sessionStorage.getItem("totalGenerated") || "0") + 1;
   sessionStorage.setItem("totalGenerated", total);
@@ -109,9 +114,22 @@ function initStats() {
   });
 }
 
+// 🔄 Slider dynamic pentru lungime
+function setupLengthSlider() {
+  const lengthInput = document.getElementById('length');
+  const lengthValue = document.getElementById('length-value');
+  if (lengthInput && lengthValue) {
+    lengthValue.textContent = lengthInput.value;
+    lengthInput.addEventListener('input', () => {
+      lengthValue.textContent = lengthInput.value;
+    });
+  }
+}
+
 window.onload = () => {
   document.getElementById('password').value = '';
   document.getElementById('copy-btn').style.display = "none";
   document.getElementById('message').style.display = "none";
   initStats();
+  setupLengthSlider();
 };

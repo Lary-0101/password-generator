@@ -74,15 +74,15 @@ function updateStats(password, genTime) {
   localStorage.setItem("totalGenerated", total);
   document.getElementById("stat-total").textContent = total;
 
-  let timeSum = parseFloat(localStorage.getItem("totalTime") || "0") + genTime;
-  localStorage.setItem("totalTime", timeSum);
-  const avgTime = Math.round(timeSum / total);
-  document.getElementById("stat-time").textContent = avgTime;
+  let timeSum = parseFloat(sessionStorage.getItem("totalTime") || "0") + genTime;
+sessionStorage.setItem("totalTime", timeSum);
+const avgTime = Math.round(timeSum / total);
+document.getElementById("stat-time").textContent = avgTime;
 
-  let last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
-  last.unshift(password);
-  if (last.length > 5) last = last.slice(0, 5);
-  sessionStorage.setItem("lastPasswords", JSON.stringify(last));
+let last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
+last.unshift(password);
+if (last.length > 5) last = last.slice(0, 5);
+sessionStorage.setItem("lastPasswords", JSON.stringify(last));
 
   const list = document.getElementById("stat-last-passwords");
   list.innerHTML = "";

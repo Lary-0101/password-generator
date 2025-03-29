@@ -68,21 +68,21 @@ function copyPassword() {
   document.getElementById('message').style.display = "block";
 }
 
-// 🔽 STATISTICI LOCALE
+// 🔽 STATISTICI TEMPORARE (sessionStorage)
 function updateStats(password, genTime) {
-  let total = parseInt(localStorage.getItem("totalGenerated") || "0") + 1;
-  localStorage.setItem("totalGenerated", total);
+  let total = parseInt(sessionStorage.getItem("totalGenerated") || "0") + 1;
+  sessionStorage.setItem("totalGenerated", total);
   document.getElementById("stat-total").textContent = total;
 
   let timeSum = parseFloat(sessionStorage.getItem("totalTime") || "0") + genTime;
-sessionStorage.setItem("totalTime", timeSum);
-const avgTime = Math.round(timeSum / total);
-document.getElementById("stat-time").textContent = avgTime;
+  sessionStorage.setItem("totalTime", timeSum);
+  const avgTime = Math.round(timeSum / total);
+  document.getElementById("stat-time").textContent = avgTime;
 
-let last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
-last.unshift(password);
-if (last.length > 5) last = last.slice(0, 5);
-sessionStorage.setItem("lastPasswords", JSON.stringify(last));
+  let last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
+  last.unshift(password);
+  if (last.length > 5) last = last.slice(0, 5);
+  sessionStorage.setItem("lastPasswords", JSON.stringify(last));
 
   const list = document.getElementById("stat-last-passwords");
   list.innerHTML = "";
@@ -94,9 +94,9 @@ sessionStorage.setItem("lastPasswords", JSON.stringify(last));
 }
 
 function initStats() {
-  document.getElementById("stat-total").textContent = localStorage.getItem("totalGenerated") || "0";
-  const total = parseInt(localStorage.getItem("totalGenerated") || "0");
-  const timeSum = parseFloat(localStorage.getItem("totalTime") || "0");
+  document.getElementById("stat-total").textContent = sessionStorage.getItem("totalGenerated") || "0";
+  const total = parseInt(sessionStorage.getItem("totalGenerated") || "0");
+  const timeSum = parseFloat(sessionStorage.getItem("totalTime") || "0");
   document.getElementById("stat-time").textContent = total > 0 ? Math.round(timeSum / total) : 0;
 
   const list = document.getElementById("stat-last-passwords");

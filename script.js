@@ -1,25 +1,56 @@
 function generatePassword() {
   const length = parseInt(document.getElementById('length').value);
-  const uppercase = document.getElementById('uppercase').checked;
-  const lowercase = document.getElementById('lowercase').checked;
-  const numbers = document.getElementById('numbers').checked;
-  const symbols = document.getElementById('symbols').checked;
-  const avoidSimilar = document.getElementById('avoid-similar').checked;
-  const easyRead = document.getElementById('easy-read').checked;
-  const easyType = document.getElementById('easy-type').checked;
+  const options = {
+    uppercase: document.getElementById('uppercase').checked,
+    lowercase: document.getElementById('lowercase').checked,
+    numbers: document.getElementById('numbers').checked,
+    symbols: document.getElementById('symbols').checked,
+    noSimilar: document.getElementById('avoid-similar').checked,
+    readable: document.getElementById('easy-read').checked,
+    easyType: document.getElementById('easy-type').checked,
+    length
+  };
 
-  const url = `https://safekeys-backend.onrender.com/generate-password?length=${length}&uppercase=${uppercase}&lowercase=${lowercase}&numbers=${numbers}&symbols=${symbols}&noSimilar=${avoidSimilar}&easyRead=${easyRead}&easyType=${easyType}`;
+  const password = generateLocalPassword(options);
+  document.getElementById('password').value = password;
+  document.getElementById('copy-btn').style.display = "block";
+  document.getElementById('message').style.display = "none";
+}
 
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('password').value = data.password;
-      document.getElementById('copy-btn').style.display = "block";
-      document.getElementById('message').style.display = "none";
-    })
-    .catch(err => {
-      alert("Eroare la generarea parolei: " + err);
-    });
+function generateLocalPassword(options) {
+  let chars = "";
+  if (options.lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
+  if (options.uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (options.numbers) chars += "0123456789";
+  if (options.symbols) chars += "!@#$%^&*()-_=+[]{}|;:,.<>?";
+
+  if (options.noSimilar || options.readable) {
+    chars = chars.replace(/[oO0l1]/g, "");
+  }
+
+  if (options.easyType) {
+    chars = chars.replace(/[!@#$%^&*()]/g, "");
+  }
+
+  if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
+
+  // Elimină duplicate
+  chars = [...new Set(chars)].join('');
+
+  if (options.length > chars.length) {
+    return `⚠️ Poți genera maxim ${chars.length} caractere fără duplicate.`;
+  }
+
+  // Generează parolă fără caractere repetate
+  let available = chars.split('');
+  let password = "";
+  for (let i = 0; i < options.length; i++) {
+    const index = Math.floor(Math.random() * available.length);
+    password += available[index];
+    available.splice(index, 1);
+  }
+
+  return password.trim();
 }
 
 function copyPassword() {

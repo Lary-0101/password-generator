@@ -4,8 +4,6 @@ const SAFE_NUMBERS = "234679";
 const SAFE_SYMBOLS = "!@#";
 
 function generatePassword() {
-  const start = performance.now();
-
   const length = parseInt(document.getElementById('length').value);
   const options = {
     uppercase: document.getElementById('uppercase').checked,
@@ -21,11 +19,10 @@ function generatePassword() {
   const password = generateLocalPassword(options);
   document.getElementById('password').value = password;
   document.getElementById('copy-btn').style.display = "none";
-
   document.getElementById('message').style.display = "none";
 
-  const end = performance.now();
-  updateStats(password, end - start);
+  // Salvează parola în memorie pentru export
+  window.generatedPassword = password;
 }
 
 function generateLocalPassword(options) {
@@ -62,60 +59,7 @@ function generateLocalPassword(options) {
   return password.trim();
 }
 
-function copyPassword() {
-  const passwordField = document.getElementById('password');
-  if (!passwordField.value) {
-    alert("Trebuie generată o parolă întâi!");
-    return;
-  }
-
-  passwordField.select();
-  document.execCommand("copy");
-  document.getElementById('message').style.display = "block";
-}
-
-// 🔽 STATISTICI TEMPORARE
-function updateStats(password, genTime) {
-  let total = parseInt(sessionStorage.getItem("totalGenerated") || "0") + 1;
-  sessionStorage.setItem("totalGenerated", total);
-  document.getElementById("stat-total").textContent = total;
-
-  let timeSum = parseFloat(sessionStorage.getItem("totalTime") || "0") + genTime;
-  sessionStorage.setItem("totalTime", timeSum);
-  const avgTime = Math.round(timeSum / total);
-  document.getElementById("stat-time").textContent = avgTime;
-
-  let last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
-  last.unshift(password);
-  if (last.length > 5) last = last.slice(0, 5);
-  sessionStorage.setItem("lastPasswords", JSON.stringify(last));
-
-  const list = document.getElementById("stat-last-passwords");
-  list.innerHTML = "";
-  last.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = p;
-    list.appendChild(li);
-  });
-}
-
-function initStats() {
-  document.getElementById("stat-total").textContent = sessionStorage.getItem("totalGenerated") || "0";
-  const total = parseInt(sessionStorage.getItem("totalGenerated") || "0");
-  const timeSum = parseFloat(sessionStorage.getItem("totalTime") || "0");
-  document.getElementById("stat-time").textContent = total > 0 ? Math.round(timeSum / total) : 0;
-
-  const list = document.getElementById("stat-last-passwords");
-  const last = JSON.parse(sessionStorage.getItem("lastPasswords") || "[]");
-  list.innerHTML = "";
-  last.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = p;
-    list.appendChild(li);
-  });
-}
-
-// 🔄 Slider dynamic pentru lungime
+// 🔽 Slider pentru afișarea numărului de caractere
 function setupLengthSlider() {
   const lengthInput = document.getElementById('length');
   const lengthValue = document.getElementById('length-value');
@@ -127,10 +71,27 @@ function setupLengthSlider() {
   }
 }
 
+// 💾 Salvează parola într-un fișier .txt
+function savePassword() {
+  if (!window.generatedPassword) {
+    alert("Trebuie generată o parolă mai întâi!");
+    return;
+  }
+
+  const blob = new Blob([window.generatedPassword], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "parola_mea.txt";
+  a.click();
+  URL.revokeObjectURL(url);
+
+  document.getElementById('message').style.display = "block";
+}
+
 window.onload = () => {
   document.getElementById('password').value = '';
   document.getElementById('copy-btn').style.display = "none";
   document.getElementById('message').style.display = "none";
-  initStats();
   setupLengthSlider();
 };

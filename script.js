@@ -1,10 +1,10 @@
-const SAFE_LETTERS_LOWER = "abcdefghijkmnpqrstuvwxyz";
-const SAFE_LETTERS_UPPER = "ABCDEFGHJKMNPQRSTUVWXYZ";
-const SAFE_NUMBERS = "234679";
-const SAFE_SYMBOLS = "!@#";
+// Funcție care actualizează valoarea afișată pentru lungimea parolei (slider)
+function updateLengthValue() {
+  const length = document.getElementById('length').value;
+  document.getElementById('length-value').textContent = length;
+}
 
-let generatedPassword = null;
-
+// Funcție pentru generarea parolei
 function generatePassword() {
   const length = parseInt(document.getElementById('length').value);
   const options = {
@@ -12,34 +12,30 @@ function generatePassword() {
     lowercase: document.getElementById('lowercase').checked,
     numbers: document.getElementById('numbers').checked,
     symbols: document.getElementById('symbols').checked,
-    noSimilar: document.getElementById('avoid-similar').checked,
-    readable: document.getElementById('easy-read').checked,
+    readable: document.getElementById('readable').checked,
     easyType: document.getElementById('easy-type').checked,
+    avoidSimilar: document.getElementById('avoid-similar').checked,
     length
   };
 
   const password = generateLocalPassword(options);
-  document.getElementById('password').value = password;
-  document.getElementById('copy-btn').style.display = "block"; // Arată butonul de copiere
 
-  // Setează parola generată doar dacă este validă
-  if (!password.startsWith("⚠️")) {
-    generatedPassword = password;
-  } else {
-    generatedPassword = null;  // Nu setăm parola dacă există eroare
-  }
+  // Salvează parola reală într-un atribut data-password pentru utilizare ulterioară
+  document.getElementById('password').setAttribute("data-password", password);
+
+  // Afișează doar asteriscuri pentru parolă
+  document.getElementById('password').value = '***********';
 }
 
-// Funcție de generare a parolei
+// Funcție pentru generarea parolei pe baza opțiunilor selectate
 function generateLocalPassword(options) {
   let chars = "";
 
-  // Dacă opțiunea "easyType" sau "easyRead" este activă, folosim un set de caractere mai restrâns
   if (options.readable || options.easyType) {
-    if (options.lowercase) chars += SAFE_LETTERS_LOWER;
-    if (options.uppercase) chars += SAFE_LETTERS_UPPER;
-    if (options.numbers) chars += SAFE_NUMBERS;
-    if (options.symbols && !options.easyType) chars += SAFE_SYMBOLS;
+    if (options.lowercase) chars += "abcdefghijkmnpqrstuvwxyz";
+    if (options.uppercase) chars += "ABCDEFGHJKMNPQRSTUVWXYZ";
+    if (options.numbers) chars += "234679";
+    if (options.symbols && !options.easyType) chars += "!@#";
   } else {
     if (options.lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
     if (options.uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -49,72 +45,32 @@ function generateLocalPassword(options) {
 
   if (!chars.length) return "⚠️ Selectează cel puțin un set de caractere!";
 
-  // Eliminăm caracterele duplicate
   chars = [...new Set(chars)].join('');
-
-  // Verificăm dacă lungimea parolei este posibilă
-  if (options.length > chars.length) {
-    return `⚠️ Poți genera maxim ${chars.length} caractere fără duplicate.`;
-  }
 
   let available = chars.split('');
   let password = "";
 
-  // Generăm parola aleatoriu
   for (let i = 0; i < options.length; i++) {
     const index = Math.floor(Math.random() * available.length);
     password += available[index];
-    available.splice(index, 1); // Eliminăm caracterul folosit pentru a evita repetarea
+    available.splice(index, 1); // Remove character to avoid repetition
   }
 
   return password.trim();
 }
 
-// Functia care se ocupă cu actualizarea valorii slider-ului
-function setupLengthSlider() {
-  const lengthInput = document.getElementById('length'); // Input-ul de tip range
-  const lengthValue = document.getElementById('length-value'); // Span-ul unde se va afișa valoarea
-
-  if (lengthInput && lengthValue) {
-    // Setează valoarea inițială a slider-ului
-    lengthValue.textContent = lengthInput.value;
-
-    // Ascultă modificările slider-ului (se actualizează în timp real)
-    lengthInput.addEventListener('input', () => {
-      lengthValue.textContent = lengthInput.value; // Actualizează valoarea din span
-    });
-  }
-}
-
-// Funcție pentru copierea parolei în clipboard
-function copyPassword() {
-  const passwordField = document.getElementById('password');
-  passwordField.select();
-  document.execCommand('copy');
-  alert("Parola a fost copiată!");
-}
 
 // Funcție pentru salvarea parolei într-un fișier .txt
 function savePassword() {
-  if (!generatedPassword) {
+  const password = document.getElementById('password').getAttribute("data-password"); // Extrage parola reală din data-password
+  if (!password) {
     alert("Trebuie generată o parolă validă mai întâi!");
     return;
   }
 
-  const blob = new Blob([generatedPassword], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "parola_mea.txt";
-  a.click();
-  URL.revokeObjectURL(url);
-
-  document.getElementById('message').style.display = "block";
+  const blob = new Blob([password], { type: 'text/plain' });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "parola_mea.txt";
+  link.click();
 }
-
-window.onload = () => {
-  document.getElementById('password').value = '';
-  document.getElementById('copy-btn').style.display = "none"; // Ascunde butonul de copiere inițial
-  document.getElementById('message').style.display = "none";
-  setupLengthSlider();
-};

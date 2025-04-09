@@ -21,11 +21,11 @@ function generatePassword() {
   document.getElementById('copy-btn').style.display = "none";
   document.getElementById('message').style.display = "none";
 
-  // ✅ Verificăm dacă parola NU este un mesaj de eroare
+  // ✅ Verificăm dacă parola generată este validă și o salvăm în window.generatedPassword
   if (!password.startsWith("⚠️")) {
-    window.generatedPassword = password;
+    window.generatedPassword = password;  // Setăm parola în memoria globală
   } else {
-    window.generatedPassword = null;
+    window.generatedPassword = null;  // Nu setăm nimic dacă este mesaj de eroare
   }
 }
 

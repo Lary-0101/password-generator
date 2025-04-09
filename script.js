@@ -18,6 +18,14 @@ function generatePassword() {
     length
   };
 
+  // Verifică dacă cel puțin un criteriu a fost selectat
+  if (!options.uppercase && !options.lowercase && !options.numbers && !options.symbols) {
+    // Afișează mesajul de avertizare în câmpul parolei
+    document.getElementById('password').value = "⚠️ Selectează cel puțin un set de caractere!";
+    return; // Ieși din funcție fără a genera parola
+  }
+
+  // Dacă criterii sunt selectate, generează parola
   const password = generateLocalPassword(options);
 
   // Salvează parola reală într-un atribut data-password pentru utilizare ulterioară

@@ -97,15 +97,14 @@
       </div>
 
       <button onclick="generatePassword()" class="btn btn-outline-light btn-xl w-100 mb-3">Generează</button>
-      <input type="text" id="password" class="form-control mb-2" readonly />
-      <button id="copy-btn" class="btn btn-success w-100" onclick="copyPassword()">Copiază</button>
+      <input type="password" id="password" class="form-control mb-2" readonly />
+  <button id="copy-btn" class="btn btn-success w-100" onclick="copyPassword()">Copiază</button>
       <div id="message" class="text-success text-center mt-2">✅ Copiat!</div>
       <div id="stats-panel" class="text-white mt-4 small">
   <hr class="bg-light" />
   <h5 class="text-white">📊 Statistici locale</h5>
   <p><strong>Parole generate:</strong> <span id="stat-total">0</span></p>
-  <p><strong>Timp mediu de generare:</strong> <span id="stat-time">0</span> ms</p>
-  <p><strong>Ultimele parole:</strong></p>
+
   <ul id="stat-last-passwords" class="list-unstyled mb-0"></ul>
 </div>
 

@@ -52,53 +52,54 @@
  
 <section id="generator" class="section-generator">
   <div class="overlay"></div>
-  <div class="container d-flex justify-content-between align-items-start">
-    <!-- Criterii (în stânga) -->
-    <div class="criteria p-4 bg-light rounded shadow">
-      <h3 class="text-center text-dark mb-4">Setări Parolă</h3>
-      
-      <!-- Lungime parolă -->
-      <div class="mb-3">
-        <label for="length" class="form-label text-dark">
-          Lungime parolă: <span id="length-value">12</span> caractere
-        </label>
-        <div class="input-group">
-          <input type="range" class="form-range" id="length" min="4" max="25" value="12" />
-        </div>
-      </div>
-      
-      <!-- Opțiuni de caractere -->
-      <div class="form-check mb-2">
-        <input class="form-check-input" type="checkbox" id="uppercase" />
-        <label class="form-check-label text-dark" for="uppercase">Litere mari</label>
-      </div>
-      <div class="form-check mb-2">
-        <input class="form-check-input" type="checkbox" id="lowercase" />
-        <label class="form-check-label text-dark" for="lowercase">Litere mici</label>
-      </div>
-      <div class="form-check mb-2">
-        <input class="form-check-input" type="checkbox" id="numbers" />
-        <label class="form-check-label text-dark" for="numbers">Cifre</label>
-      </div>
-      <div class="form-check mb-4">
-        <input class="form-check-input" type="checkbox" id="symbols" />
-        <label class="form-check-label text-dark" for="symbols">Simboluri</label>
-      </div>
-    </div>
-    
-    <!-- Generator de parolă (în dreapta) -->
+  <div class="container d-flex justify-content-center align-items-center">
+    <!-- Generatorul de parolă -->
     <div class="generator-card p-5 rounded shadow bg-dark text-white">
       <h2 class="text-center mb-4">Generează o parolă sigură</h2>
-      
+
+      <!-- Personalizarea parolei -->
+      <div class="mb-4">
+        <h4 class="text-center mb-3 text-pink">Customizează parola</h4>
+        <!-- Lungime parolă -->
+        <div class="mb-3">
+          <label for="length" class="form-label text-white">
+            Lungime parolă: <span id="length-value">12</span> caractere
+          </label>
+          <div class="input-group">
+            <input type="range" class="form-range" id="length" min="4" max="25" value="12" />
+          </div>
+        </div>
+
+        <!-- Opțiuni de caractere -->
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="uppercase" />
+          <label class="form-check-label text-white" for="uppercase">Litere mari</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="lowercase" />
+          <label class="form-check-label text-white" for="lowercase">Litere mici</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="numbers" />
+          <label class="form-check-label text-white" for="numbers">Cifre</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" id="symbols" />
+          <label class="form-check-label text-white" for="symbols">Simboluri</label>
+        </div>
+      </div>
+
+      <!-- Parola generată -->
       <div class="mb-3">
-        <label for="password" class="form-label">Parola generată:</label>
+        <label for="password" class="form-label text-white">Parola generată:</label>
         <input type="text" id="password" class="form-control" readonly />
       </div>
-      
-      <div class="d-flex justify-content-between">
-        <button class="btn btn-success" onclick="generatePassword()">Generează</button>
-        <button class="btn btn-info" id="copy-btn" onclick="copyPassword()">Copiază</button>
-        <button class="btn btn-primary" onclick="savePassword()">Salvează</button>
+
+      <!-- Butoane -->
+      <div class="d-flex justify-content-center mb-3">
+        <button class="btn btn-primary mx-2" onclick="generatePassword()">Generează</button>
+        <button class="btn btn-success mx-2" id="copy-btn" onclick="copyPassword()">Copiază</button>
+        <button class="btn btn-danger mx-2" onclick="savePassword()">Salvează</button>
       </div>
     </div>
   </div>

@@ -257,6 +257,7 @@ h2 i {
   font-size: 1.25rem;
   color: #f8f9fa;
 }
+
 #stats-panel p,
 #stats-panel ul {
   font-size: 0.9rem;
@@ -267,6 +268,7 @@ h2 i {
   font-size: 0.85rem;
   opacity: 0.9;
 }
+
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
@@ -288,4 +290,3 @@ input[type=range]::-webkit-slider-runnable-track {
   background: #ccc;
   border-radius: 3px;
 }
-

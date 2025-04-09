@@ -21,11 +21,11 @@ function generatePassword() {
   document.getElementById('copy-btn').style.display = "none";
   document.getElementById('message').style.display = "none";
 
-  // ✅ Verificăm dacă parola generată este validă și o salvăm în window.generatedPassword
+  // ✅ Setează parola generată în window.generatedPassword doar dacă este validă
   if (!password.startsWith("⚠️")) {
-    window.generatedPassword = password;  // Setăm parola în memoria globală
+    window.generatedPassword = password;
   } else {
-    window.generatedPassword = null;  // Nu setăm nimic dacă este mesaj de eroare
+    window.generatedPassword = null;  // Dacă apare o eroare, nu setăm parola
   }
 }
 
@@ -77,7 +77,6 @@ function setupLengthSlider() {
     });
   }
 }
-
 
 // 💾 Salvează parola într-un fișier .txt
 function savePassword() {

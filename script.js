@@ -21,8 +21,12 @@ function generatePassword() {
   document.getElementById('copy-btn').style.display = "none";
   document.getElementById('message').style.display = "none";
 
-  // Salvează parola în memorie pentru export
-  window.generatedPassword = password;
+  // ✅ Verificăm dacă parola NU este un mesaj de eroare
+  if (!password.startsWith("⚠️")) {
+    window.generatedPassword = password;
+  } else {
+    window.generatedPassword = null;
+  }
 }
 
 function generateLocalPassword(options) {
@@ -74,7 +78,7 @@ function setupLengthSlider() {
 // 💾 Salvează parola într-un fișier .txt
 function savePassword() {
   if (!window.generatedPassword) {
-    alert("Trebuie generată o parolă mai întâi!");
+    alert("Trebuie generată o parolă validă mai întâi!");
     return;
   }
 

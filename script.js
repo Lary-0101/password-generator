@@ -63,19 +63,27 @@ function generateLocalPassword(options) {
   return password.trim();
 }
 
-// 🔽 Slider pentru afișarea numărului de caractere
+// Functia care se ocupă cu actualizarea valorii slider-ului
 function setupLengthSlider() {
-  const lengthInput = document.getElementById('length');
-  const lengthValue = document.getElementById('length-value');
+  const lengthInput = document.getElementById('length'); // Input-ul de tip range
+  const lengthValue = document.getElementById('length-value'); // Span-ul unde se va afișa valoarea
+
   if (lengthInput && lengthValue) {
-    // Setează valoarea inițială
+    // Setează valoarea inițială a slider-ului
     lengthValue.textContent = lengthInput.value;
 
-    // Ascultă modificările slider-ului
+    // Ascultă modificările slider-ului (se actualizează în timp real)
     lengthInput.addEventListener('input', () => {
-      lengthValue.textContent = lengthInput.value;  // Actualizează valoarea din span
+      lengthValue.textContent = lengthInput.value; // Actualizează valoarea din span
     });
   }
+}
+
+// Asigură-te că setup-ul este apelat atunci când pagina se încarcă
+window.onload = () => {
+  setupLengthSlider(); // Setează slider-ul pentru lungimea parolei
+};
+
 }
 
 // 💾 Salvează parola într-un fișier .txt

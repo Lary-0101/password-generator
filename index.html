@@ -54,20 +54,18 @@
   <div class="overlay"></div>
   <div class="container d-flex justify-content-center align-items-center">
     <!-- Generatorul de parolă -->
-    <div class="generator-card p-5 rounded shadow bg-dark text-white">
+    <div class="generator-card p-5 rounded shadow text-white">
       <h2 class="text-center mb-4">Generează o parolă sigură</h2>
 
       <!-- Personalizarea parolei -->
       <div class="mb-4">
-        <h4 class="text-center mb-3 text-pink">Customizează parola</h4>
+        <h4 class="text-center mb-3">Customizează parola</h4>
         <!-- Lungime parolă -->
         <div class="mb-3">
           <label for="length" class="form-label text-white">
             Lungime parolă: <span id="length-value">12</span> caractere
           </label>
-          <div class="input-group">
-            <input type="range" class="form-range" id="length" min="4" max="25" value="12" />
-          </div>
+          <input type="range" class="form-range" id="length" min="4" max="25" value="12" oninput="updateLengthValue()" />
         </div>
 
         <!-- Opțiuni de caractere -->
@@ -83,9 +81,21 @@
           <input class="form-check-input" type="checkbox" id="numbers" />
           <label class="form-check-label text-white" for="numbers">Cifre</label>
         </div>
-        <div class="form-check mb-4">
+        <div class="form-check mb-2">
           <input class="form-check-input" type="checkbox" id="symbols" />
           <label class="form-check-label text-white" for="symbols">Simboluri</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="readable" />
+          <label class="form-check-label text-white" for="readable">Caractere ușor de citit</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="easy-type" />
+          <label class="form-check-label text-white" for="easy-type">Caractere ușor de tastat</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" id="avoid-similar" />
+          <label class="form-check-label text-white" for="avoid-similar">Să nu se repete caractere similare</label>
         </div>
       </div>
 
@@ -96,14 +106,14 @@
       </div>
 
       <!-- Butoane -->
-      <div class="d-flex justify-content-center mb-3">
+      <div class="d-flex justify-content-between">
         <button class="btn btn-primary mx-2" onclick="generatePassword()">Generează</button>
-        <button class="btn btn-success mx-2" id="copy-btn" onclick="copyPassword()">Copiază</button>
         <button class="btn btn-danger mx-2" onclick="savePassword()">Salvează</button>
       </div>
     </div>
   </div>
 </section>
+
         <section id="about" class="section-about">
   <div class="container">
     <div class="row align-items-center">

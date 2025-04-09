@@ -68,12 +68,16 @@ function setupLengthSlider() {
   const lengthInput = document.getElementById('length');
   const lengthValue = document.getElementById('length-value');
   if (lengthInput && lengthValue) {
+    // Setează valoarea inițială
     lengthValue.textContent = lengthInput.value;
+
+    // Ascultă modificările slider-ului
     lengthInput.addEventListener('input', () => {
-      lengthValue.textContent = lengthInput.value;
+      lengthValue.textContent = lengthInput.value;  // Actualizează valoarea din span
     });
   }
 }
+
 
 // 💾 Salvează parola într-un fișier .txt
 function savePassword() {

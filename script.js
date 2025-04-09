@@ -20,7 +20,8 @@ function generatePassword() {
 
   const password = generateLocalPassword(options);
   document.getElementById('password').value = password;
-  document.getElementById('copy-btn').style.display = "block";
+  document.getElementById('copy-btn').style.display = "none";
+
   document.getElementById('message').style.display = "none";
 
   const end = performance.now();

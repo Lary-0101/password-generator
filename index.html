@@ -99,11 +99,20 @@
         </div>
       </div>
 
-      <!-- Parola generată -->
       <div class="mb-3">
-        <label for="password" class="form-label text-white">Parola generată:</label>
-        <input type="text" id="password" class="form-control" readonly />
-      </div>
+  <label for="password" class="form-label">Parola generată:</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="password" readonly>
+    <button class="btn btn-outline-secondary" type="button" id="toggle-password">👁️</button>
+  </div>
+  <div class="mt-2">
+    <label class="form-label">Puterea parolei: <span id="strength-score">0%</span></label>
+    <div class="progress" style="height: 8px;">
+      <div id="strength-bar" class="progress-bar" style="width: 0%;"></div>
+    </div>
+    <p id="password-hash" class="mt-2 text-white" style="font-size: 0.9rem; word-break: break-all;"></p>
+  </div>
+</div>
 
       <!-- Butoane -->
       <div class="d-flex justify-content-between">

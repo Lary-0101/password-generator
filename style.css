@@ -584,4 +584,35 @@ input[type=range]::-webkit-slider-runnable-track {
   .section-contact h2 {
     font-size: 1.8rem;
   }
+  /* Stiluri pentru bara de progres a scorului de securitate */
+.progress {
+  background: #e5e7eb; /* Culoare de fundal gri deschis */
+  border-radius: 5px; /* Colțuri rotunjite */
+  overflow: hidden; /* Ascunde conținutul care depășește */
+  height: 8px; /* Înălțime bară */
+}
+
+/* Stiluri pentru bara de progres propriu-zisă */
+.progress-bar {
+  transition: width 0.3s ease, background 0.3s ease; /* Tranziții fluide pentru lățime și culoare */
+}
+
+/* Stiluri pentru butonul de comutare vizibilitate (👁️/🙈) */
+.btn-outline-secondary {
+  border-color: #e5e7eb; /* Culoare ramă gri deschis */
+  color: var(--text); /* Culoare text, folosind variabila existentă */
+  transition: var(--transition); /* Tranziție definită în CSS-ul tău */
+}
+
+.btn-outline-secondary:hover {
+  background: var(--primary); /* Culoare de fundal la hover, folosind variabila existentă */
+  color: var(--accent); /* Culoare text la hover, folosind variabila existentă */
+}
+
+/* Stiluri pentru afișarea hash-ului SHA-256 */
+#password-hash {
+  transition: var(--transition); /* Tranziție pentru schimbări de conținut */
+  font-size: 0.9rem; /* Dimensiune font mai mică */
+  word-break: break-all; /* Rupe textul lung (hash-ul) pe mai multe linii */
+}
 }

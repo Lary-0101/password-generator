@@ -104,9 +104,7 @@ async function generatePassword() {
   document.getElementById('strength-bar').style.width = `${score}%`;
   document.getElementById('strength-bar').style.background = score >= 80 ? '#22c55e' : score >= 50 ? '#facc15' : '#ef4444';
 
-  // Generăm și afișăm hash-ul SHA-256
-  const sha256Hash = await generateHash(password);
-  document.getElementById('password-hash').textContent = `Hash (SHA-256): ${sha256Hash}`;
+  
 }
 
 // Funcție pentru generarea parolei pe baza opțiunilor selectate

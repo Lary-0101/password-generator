@@ -4,7 +4,6 @@ function updateLengthValue() {
   document.getElementById('length-value').textContent = length;
   updateStrengthRealTime();
 }
-
 // Funcție pentru calcularea scorului de securitate
 function calculatePasswordStrength(options, password) {
   let score = 0;
@@ -18,23 +17,6 @@ function calculatePasswordStrength(options, password) {
   if (options.avoidSimilar && /([a-zA-Z0-9]).*\1/.test(password)) score -= 10;
   return Math.min(Math.max(score, 0), 100);
 }
-
-// Funcție pentru generarea hash-ului SHA-256
-async function generateHash(password) {
-  if (!password || typeof password !== 'string' || password.includes('⚠️')) {
-    return '';
-  }
-  try {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hash = await crypto.subtle.digest('SHA-256', data);
-    return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-  } catch (error) {
-    console.error('Eroare la generarea hash-ului SHA-256:', error);
-    return 'Eroare la generarea hash-ului';
-  }
-}
-
 // Funcție pentru actualizarea scorului în timp real
 function updateStrengthRealTime() {
   const length = parseInt(document.getElementById('length').value);
@@ -161,18 +143,4 @@ document.getElementById('length').addEventListener('input', () => {
 document.querySelectorAll('#uppercase, #lowercase, #numbers, #symbols, #readable, #easy-type, #avoid-similar').forEach(input => {
   input.addEventListener('change', updateStrengthRealTime);
 });
-
-document.getElementById('toggle-password').addEventListener('click', togglePasswordVisibility);
-function copyToClipboard() {
-  const password = document.getElementById('password').getAttribute("data-password");
-  if (!password || password.includes('⚠️')) {
-    alert("Trebuie generată o parolă validă mai întâi!");
-    return;
-  }
-  navigator.clipboard.writeText(password).then(() => {
-    alert("Parola a fost copiată în clipboard!");
-  }).catch(err => {
-    console.error('Eroare la copierea în clipboard:', err);
-    alert("Eroare la copierea parolei!");
-  });
 }

@@ -626,4 +626,123 @@ input[type=range]::-webkit-slider-runnable-track {
   font-size: 0.9rem; /* Dimensiune font mai mică */
   word-break: break-all; /* Rupe textul lung (hash-ul) pe mai multe linii */
 }
+  /* Stiluri pentru notificarea toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--accent);
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  max-width: 85%;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.toast.error {
+  background: #ef4444;
+}
+
+/* Stiluri pentru butoanele din generator-card */
+.generator-card .btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.generator-card .btn-primary {
+  background: var(--primary);
+  border: none;
+  color: var(--accent);
+  box-shadow: 0 4px 10px rgba(22, 101, 52, 0.3);
+}
+
+.generator-card .btn-primary:hover {
+  background: var(--secondary);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.generator-card .btn-danger {
+  background: #ef4444;
+  border: none;
+}
+
+.generator-card .btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.generator-card .btn-secondary {
+  background: #4b5563;
+  border: none;
+  color: var(--accent);
+  box-shadow: 0 4px 10px rgba(75, 85, 99, 0.3);
+}
+
+.generator-card .btn-secondary:hover {
+  background: var(--secondary);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* Ajustări pentru mobil */
+@media (max-width: 768px) {
+  .generator-card .btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    margin: 0.3rem;
+  }
+  .generator-card .btn-secondary {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+  .toast {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    max-width: 90%;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .generator-card .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    width: 100%;
+    margin: 0.2rem 0;
+  }
+  .generator-card .btn-secondary {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  .generator-card .mt-4.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .toast {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    max-width: 95%;
+    bottom: 15px;
+  }
+}
 }

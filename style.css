@@ -356,6 +356,17 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 5px;
   background: #e5e7eb;
   border-radius: 3px;
+  .generator-card .btn-secondary {
+  background: #6b7280;
+  border: none;
+  color: var(--accent);
+  box-shadow: 0 4px 10px rgba(107, 114, 128, 0.3);
+}
+.generator-card .btn-secondary:hover {
+  background: var(--secondary);
+  color: var(--text);
+  transform: translateY(-2px);
+}
 }
 
 /* About Section */

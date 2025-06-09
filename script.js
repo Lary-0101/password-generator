@@ -163,3 +163,16 @@ document.querySelectorAll('#uppercase, #lowercase, #numbers, #symbols, #readable
 });
 
 document.getElementById('toggle-password').addEventListener('click', togglePasswordVisibility);
+function copyToClipboard() {
+  const password = document.getElementById('password').getAttribute("data-password");
+  if (!password || password.includes('⚠️')) {
+    alert("Trebuie generată o parolă validă mai întâi!");
+    return;
+  }
+  navigator.clipboard.writeText(password).then(() => {
+    alert("Parola a fost copiată în clipboard!");
+  }).catch(err => {
+    console.error('Eroare la copierea în clipboard:', err);
+    alert("Eroare la copierea parolei!");
+  });
+}

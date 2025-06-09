@@ -142,4 +142,8 @@ document.getElementById('length').addEventListener('input', () => {
 
 document.querySelectorAll('#uppercase, #lowercase, #numbers, #symbols, #readable, #easy-type, #avoid-similar').forEach(input => {
   input.addEventListener('change', updateStrengthRealTime);
+  document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("toggle-password").addEventListener("click", togglePasswordVisibility);
+  document.querySelector(".btn-primary").addEventListener("click", generatePassword);
+  document.querySelector(".btn-danger").addEventListener("click", savePassword);
 });

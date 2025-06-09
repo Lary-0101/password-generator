@@ -143,4 +143,3 @@ document.getElementById('length').addEventListener('input', () => {
 document.querySelectorAll('#uppercase, #lowercase, #numbers, #symbols, #readable, #easy-type, #avoid-similar').forEach(input => {
   input.addEventListener('change', updateStrengthRealTime);
 });
-}

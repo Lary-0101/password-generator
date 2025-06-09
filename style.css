@@ -619,4 +619,8 @@ input[type=range]::-webkit-slider-runnable-track {
   background: var(--primary); /* Culoare de fundal la hover, folosind variabila existentă */
   color: var(--accent); /* Culoare text la hover, folosind variabila existentă */
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
+

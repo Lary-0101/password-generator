@@ -1,4 +1,4 @@
-// script.js REVIZUIT COMPLET
+
 
 // Actualizează valoarea afișată pentru slider
 function updateLengthValue() {
